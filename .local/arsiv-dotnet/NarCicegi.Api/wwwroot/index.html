@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nar Çiçeği · Sistem durumu</title><link rel="stylesheet" href="/status.css"><script src="/status.js" defer></script></head>
+<body><main>
+<header><p class="eyebrow">NAR ÇİÇEĞİ</p><h1>Sistem durumu</h1><p>İşletme uygulamasının bağlantı ve hazırlık durumu.</p></header>
+<section aria-labelledby="db-title"><div class="row"><h2 id="db-title">MySQL veritabanı</h2><span id="badge" class="badge">Kontrol ediliyor</span></div><p id="message" role="status" aria-live="polite">Uygulama hizmetine bağlanılıyor…</p>
+<dl><div><dt>Son kontrol</dt><dd id="checked">—</dd></div><div><dt>Son başarılı bağlantı</dt><dd id="success">—</dd></div><div><dt>Şema sürümü</dt><dd id="schema">—</dd></div><div><dt>Kontrol süresi</dt><dd id="latency">—</dd></div></dl><button id="refresh" type="button">Durumu yenile</button></section>
+<aside><h2>Kurulum aşaması</h2><p>Bu ekran gerçek MySQL bağlantısını kontrol eder. Satış, sipariş ve tahsilat modülleri henüz bağlı değil.</p><p>Önceki ekran taslağı proje klasöründeki EKRAN-ONIZLEME.html dosyasında duruyor.</p></aside>
+<footer><span id="updated">Durum otomatik yenilenir.</span></footer>
+</main></body></html>

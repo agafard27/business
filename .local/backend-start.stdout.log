@@ -1,0 +1,2 @@
+{"time":"2026-10-23T19:39:47.240Z","level":"info","event":"listening","url":"http://127.0.0.1:5080"}
+{"time":"2026-10-23T19:39:47.427Z","level":"info","event":"database_state","state":"ready"}

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/NarCicegi.Api/NarCicegi.Api.csproj" />
+  <Project Path="tests/NarCicegi.Checks/NarCicegi.Checks.csproj" />
+</Solution>

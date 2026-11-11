@@ -1,0 +1,10 @@
+$ErrorActionPreference = 'Stop'
+$projectRoot = Split-Path -Parent $PSScriptRoot
+$env:DOTNET_CLI_HOME = Join-Path $projectRoot '.local/dotnet'
+$env:NUGET_PACKAGES = Join-Path $projectRoot '.local/packages'
+$env:DOTNET_CLI_TELEMETRY_OPTOUT = '1'
+$env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE = 'true'
+$env:DOTNET_NOLOGO = '1'
+$env:APPDATA = Join-Path $projectRoot '.local/appdata'
+$env:NAR_LOCAL_CONFIG = Join-Path $projectRoot '.local/database.json'
+$apiProject = Join-Path $projectRoot 'src/NarCicegi.Api/NarCicegi.Api.csproj'
