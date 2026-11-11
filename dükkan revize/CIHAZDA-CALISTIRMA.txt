@@ -1,0 +1,32 @@
+DÜKKAN REVİZE — İLK CİHAZ DENEMESİ
+
+Hedef: Windows 7 SP1 / 32 bit / 2 GB RAM / 1024 x 768.
+Bu paket satış programının tamamı değildir. İlk uyumluluk denemesidir.
+
+1. Cihazda Microsoft .NET Framework 4.8 kurulu olmalıdır.
+   Resmi çevrimdışı yükleyici:
+   https://support.microsoft.com/en-us/servicing/dotnetframework/2019/10/microsoft-net-framework-4-8-offline-installer-for-windows
+   Windows 7 güncelleme ön koşulları eksikse .NET kurulumu önce bunları isteyebilir.
+2. ZIP dosyasının tamamını cihazda yeni bir klasöre çıkarın.
+   EXE dosyasını ZIP'in içinden doğrudan çalıştırmayın.
+3. DukkanRevize.exe dosyasını açın. sqlite3.dll yanında kalmalıdır.
+   Yönetici yetkisi, Node.js, MySQL, internet veya tarayıcı gerektirmez.
+4. Cihaz denetimi ekranını açın.
+5. Veritabanını dene düğmesine basın; BAŞARILI sonucunu kontrol edin.
+6. Dokunma düğmesine dokunup sayacın birer birer arttığını kontrol edin.
+7. Yazıcıyı dene düğmesiyle varsa yazıcıyı seçin; Türkçe harfleri ve kâğıdı kontrol edin.
+   Bu çıktı satış fişi değildir.
+8. Raporu kaydet ile sonucu dosyaya alın.
+
+Beklenenler: pencere kullanılabilir ekrana sığar, düğmeler okunur,
+veritabanı denemesi geçer, dokunma ve varsa yazıcı fiziksel olarak çalışır.
+
+Bu uygulama mevcut işletme veritabanını açmaz veya değiştirmez.
+Yalnız geçici bir cihaz deneme veritabanı oluşturur ve deneme sonunda temizler.
+Gerçek satış, stok, bakiye, kullanıcı veya canlı veri aktarımı içermez.
+Telefon ve yerel ağ bağlantısı bu ilk pakette henüz uygulanmamıştır.
+
+SQLite resmi dağıtım ve lisans bilgisi:
+https://www.sqlite.org/download.html
+https://www.sqlite.org/copyright.html
+

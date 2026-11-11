@@ -1,0 +1,7 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Backend'i başlat", "type": "process", "command": "node", "args": ["backend/scripts/start.js"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [], "presentation": { "reveal": "always", "panel": "dedicated" } },
+    { "label": "Backend kontrolleri", "type": "process", "command": "node", "args": ["--test", "backend/tests/*.test.js"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [] }
+  ]
+}

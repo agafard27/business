@@ -1,0 +1,9 @@
+import {object,text,key,operate,snapshot,problem,conflict} from './core.js';
+import {identifier} from '../catalog/validation.js';
+import {businessRouter,endpoint,writeGuards,businessErrors} from './router.js';
+import {requirePermission} from '../auth/routes.js';
+export function createSettingsService(config){return {
+  async read(){return snapshot(config,async connection=>{const [[row]]=await connection.execute("SELECT value_json,revision FROM application_settings WHERE setting_key='business'");const value=typeof row.value_json==='string'?JSON.parse(row.value_json):row.value_json;return {business:{name:value.name,timeZone:'Europe/Istanbul',revision:String(row.revision)},connection:{mode:'pc',address:'http://127.0.0.1:5080'},backup:{target:'.local/yedekler',intervalHours:6},printing:{mode:'windows-dialog',hardwareVerified:false}};});},
+  async save(input,actorId){object(input,['requestKey','revision','name']);const payload={revision:identifier(input.revision),name:text(input.name,180,'İşletme adı')};return operate(config,{type:'settings.business.save',permission:'settings.manage',actorId,requestKey:key(input.requestKey),payload},async connection=>{const [[row]]=await connection.execute("SELECT revision FROM application_settings WHERE setting_key='business' FOR UPDATE");if(String(row.revision)!==payload.revision)throw conflict();await connection.execute("UPDATE application_settings SET value_json=JSON_SET(value_json,'$.name',?),revision=revision+1,updated_at_utc=UTC_TIMESTAMP(6) WHERE setting_key='business'",[payload.name]);return {saved:true};});}
+};}
+export function createSettingsRouter(service,auth,monitor){const router=businessRouter(auth,monitor);router.get('/',requirePermission('settings.read'),endpoint(()=>service.read()));router.post('/',...writeGuards('settings.manage'),endpoint(req=>service.save(req.body,req.user.id)));return businessErrors(router);}

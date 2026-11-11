@@ -1,0 +1,40 @@
+{
+  "name": "nar-cicegi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Nar Çiçeği yerel işletme backend altyapısı",
+  "engines": {
+    "node": ">=24.15 <25"
+  },
+  "scripts": {
+    "start": "node backend/scripts/start.js",
+    "dev": "node --watch backend/src/server.js",
+    "setup": "node backend/scripts/setup.js",
+    "db:migrate": "node backend/scripts/migrate.js",
+    "menu:import": "node backend/scripts/import-menu.js",
+    "backup": "node backend/scripts/backup.js",
+    "backup:restore-check": "node backend/scripts/restore-check.js",
+    "test": "node --test backend/tests/*.test.js && node backend/tests/prototype/odeme-paylari-kontrol.cjs",
+    "test:integration": "node --test backend/tests/integration.check.js",
+    "check": "node backend/scripts/check.js",
+    "doctor": "node backend/scripts/doctor.js",
+    "desktop:install": "powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File backend/scripts/install-startup.ps1 -Start",
+    "desktop:remove": "powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File backend/scripts/install-startup.ps1 -Remove",
+    "desktop:restart": "powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File backend/scripts/install-startup.ps1 -Restart",
+    "module": "node backend/scripts/module-map.js"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    }
+  },
+  "dependencies": {
+    "exceljs": "4.4.0",
+    "express": "5.3.0",
+    "mysql2": "3.24.6"
+  },
+  "devDependencies": {
+    "jsdom": "30.1.3"
+  }
+}

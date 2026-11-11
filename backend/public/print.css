@@ -1,0 +1,9 @@
+@media screen { #nar-print { display: none; } }
+@media print {
+  body > *:not(#nar-print) { display: none !important; }
+  #nar-print { display: block; color: #000; background: #fff; font: 12pt Arial,sans-serif; width: 72mm; margin: auto; }
+  #nar-print table { width: 100%; border-collapse: collapse; }
+  #nar-print td { padding: 4px 0; border-bottom: 1px dotted #777; }
+  #nar-print h1 { font-size: 16pt; }
+  @page { margin: 6mm; }
+}

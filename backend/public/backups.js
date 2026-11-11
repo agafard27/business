@@ -1,0 +1,6 @@
+import {html,formShell,commandForm} from './business-ui.js';
+export async function renderBackups(container,context){
+  const {request,message,isCurrent}=context;const data=await request('/api/backups');if(!isCurrent())return;
+  container.innerHTML=`<h2>Yedekleme ve işletim</h2><section class="panel"><h3>Proje içi şifreli yedek</h3><p>Hedef: ${html(data.target)} · Otomatik aralık: ${html(data.intervalHours)} saat</p><p>Yedekler bu Windows hesabına bağlı anahtarla şifrelenir. Anahtar dosyası korunmalıdır. Aynı diskteki yedek disk arızasına karşı ayrı koruma sağlamaz.</p>${formShell('<p>Güncel veritabanının tutarlı bir kopyasını al.</p>')}<p>Geri dönüş denemesi, terminalde yalnız ayrı bir veritabanına yapılır. İşletim adımları proje belgelerindedir.</p></section><section class="panel"><h3>Son denemeler</h3>${data.runs.map(run=>`<p>#${html(run.id)} · ${html(run.status)} · ${html(run.completedAtUtc||'Sürüyor')}${run.restoreVerifiedAtUtc?' · Geri dönüş doğrulandı':''}</p>`).join('')||'<p>Henüz yedek yok.</p>'}<h3>Dosyalar</h3>${data.files.map(file=>`<p>${html(file.name)} · ${html(file.sizeBytes)} bayt</p>`).join('')}</section>`;
+  commandForm(container.querySelector('form'),{request,message,path:'/api/backups/run',values:()=>({}),success:()=>renderBackups(container,context)});
+}

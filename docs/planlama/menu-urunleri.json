@@ -1,0 +1,1284 @@
+{
+  "kaynak": "https://menu.narcicegi.com.tr",
+  "kontrolTarihi": "2026-10-21",
+  "kaynakDosya": "/assets/index-e54bccf5.js",
+  "urunSayisi": 85,
+  "fiyatSecenegiSayisi": 94,
+  "kategoriler": [
+    {
+      "ad": "Yemekler",
+      "yol": "/foods",
+      "urunSayisi": 5
+    },
+    {
+      "ad": "İçecekler",
+      "yol": "/drinks",
+      "urunSayisi": 36
+    },
+    {
+      "ad": "Çerezler",
+      "yol": "/snacks",
+      "urunSayisi": 9
+    },
+    {
+      "ad": "Aparatifler",
+      "yol": "/aperatifs",
+      "urunSayisi": 4
+    },
+    {
+      "ad": "Dondurmalar",
+      "yol": "/dondurma",
+      "urunSayisi": 31
+    }
+  ],
+  "urunler": [
+    {
+      "kaynakKimligi": "foods-01",
+      "kategori": "Yemekler",
+      "kaynakYolu": "/foods",
+      "ad": "Adana Kebap",
+      "fiyat": "Dürüm 250 ₺ \nPorsiyon 500 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Dürüm",
+          "fiyatKurus": 25000
+        },
+        {
+          "ad": "Porsiyon",
+          "fiyatKurus": 50000
+        }
+      ],
+      "gorselDegiskeni": "oa"
+    },
+    {
+      "kaynakKimligi": "foods-02",
+      "kategori": "Yemekler",
+      "kaynakYolu": "/foods",
+      "ad": "Kuşbaşı Kebap",
+      "fiyat": "Dürüm 250 ₺ \nPorsiyon 500 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Dürüm",
+          "fiyatKurus": 25000
+        },
+        {
+          "ad": "Porsiyon",
+          "fiyatKurus": 50000
+        }
+      ],
+      "gorselDegiskeni": "zf"
+    },
+    {
+      "kaynakKimligi": "foods-03",
+      "kategori": "Yemekler",
+      "kaynakYolu": "/foods",
+      "ad": "Tavuk Kanat",
+      "fiyat": "300₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 30000
+        }
+      ],
+      "gorselDegiskeni": "Ff"
+    },
+    {
+      "kaynakKimligi": "foods-04",
+      "kategori": "Yemekler",
+      "kaynakYolu": "/foods",
+      "ad": "Tavuk Sarma",
+      "fiyat": "Dürüm 150 ₺ \nPorsiyon 300 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Dürüm",
+          "fiyatKurus": 15000
+        },
+        {
+          "ad": "Porsiyon",
+          "fiyatKurus": 30000
+        }
+      ],
+      "gorselDegiskeni": "Nf"
+    },
+    {
+      "kaynakKimligi": "foods-05",
+      "kategori": "Yemekler",
+      "kaynakYolu": "/foods",
+      "ad": "Tavuk Şiş",
+      "fiyat": "Dürüm 150 ₺ \nPorsiyon 300 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Dürüm",
+          "fiyatKurus": 15000
+        },
+        {
+          "ad": "Porsiyon",
+          "fiyatKurus": 30000
+        }
+      ],
+      "gorselDegiskeni": "Of"
+    },
+    {
+      "kaynakKimligi": "drinks-01",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Nar Suyu",
+      "fiyat": "75 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7500
+        }
+      ],
+      "gorselDegiskeni": "sa"
+    },
+    {
+      "kaynakKimligi": "drinks-02",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Nar Suyu (500ml)",
+      "fiyat": "225 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 22500
+        }
+      ],
+      "gorselDegiskeni": "np"
+    },
+    {
+      "kaynakKimligi": "drinks-03",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Nar Suyu (1.5L)",
+      "fiyat": "675 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 67500
+        }
+      ],
+      "gorselDegiskeni": "rp"
+    },
+    {
+      "kaynakKimligi": "drinks-04",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Çay",
+      "fiyat": "20 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 2000
+        }
+      ],
+      "gorselDegiskeni": "If"
+    },
+    {
+      "kaynakKimligi": "drinks-05",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Ayran",
+      "fiyat": "50 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5000
+        }
+      ],
+      "gorselDegiskeni": "_f"
+    },
+    {
+      "kaynakKimligi": "drinks-06",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Şalgam",
+      "fiyat": "50 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5000
+        }
+      ],
+      "gorselDegiskeni": "Zo"
+    },
+    {
+      "kaynakKimligi": "drinks-07",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Şalgam (1L)",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "Zo"
+    },
+    {
+      "kaynakKimligi": "drinks-08",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Limonata",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "Yo"
+    },
+    {
+      "kaynakKimligi": "drinks-09",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Nescafe",
+      "fiyat": "70 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7000
+        }
+      ],
+      "gorselDegiskeni": "jf"
+    },
+    {
+      "kaynakKimligi": "drinks-10",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Türk Kahvesi",
+      "fiyat": "80 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 8000
+        }
+      ],
+      "gorselDegiskeni": "gi"
+    },
+    {
+      "kaynakKimligi": "drinks-11",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Dibek Kahvesi",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "gi"
+    },
+    {
+      "kaynakKimligi": "drinks-12",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Menengiç Kahvesi",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "gi"
+    },
+    {
+      "kaynakKimligi": "drinks-13",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Oralet",
+      "fiyat": "20 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 2000
+        }
+      ],
+      "gorselDegiskeni": "Df"
+    },
+    {
+      "kaynakKimligi": "drinks-14",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Kola",
+      "fiyat": "70 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7000
+        }
+      ],
+      "gorselDegiskeni": "Bf",
+      "ambalaj": "Kutu",
+      "ambalajDayanagi": "Menu gorselinden yorumlandi; hacim belirtilmedi"
+    },
+    {
+      "kaynakKimligi": "drinks-15",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Fanta",
+      "fiyat": "70 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7000
+        }
+      ],
+      "gorselDegiskeni": "Uf"
+    },
+    {
+      "kaynakKimligi": "drinks-16",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Çörçil",
+      "fiyat": "50 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5000
+        }
+      ],
+      "gorselDegiskeni": "Yo"
+    },
+    {
+      "kaynakKimligi": "drinks-17",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Kola",
+      "fiyat": "40 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 4000
+        }
+      ],
+      "gorselDegiskeni": "Wf",
+      "ambalaj": "Cam şişe",
+      "ambalajDayanagi": "Menu gorselinden yorumlandi; hacim belirtilmedi"
+    },
+    {
+      "kaynakKimligi": "drinks-18",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Redbull (Küçük)",
+      "fiyat": "80 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 8000
+        }
+      ],
+      "gorselDegiskeni": "vi"
+    },
+    {
+      "kaynakKimligi": "drinks-19",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Redbull (Orta)",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "vi"
+    },
+    {
+      "kaynakKimligi": "drinks-20",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Redbull (Büyük)",
+      "fiyat": "120 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 12000
+        }
+      ],
+      "gorselDegiskeni": "vi"
+    },
+    {
+      "kaynakKimligi": "drinks-21",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Didi Soğuk Çay",
+      "fiyat": "50 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5000
+        }
+      ],
+      "gorselDegiskeni": "Gf"
+    },
+    {
+      "kaynakKimligi": "drinks-22",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Fuse Tea",
+      "fiyat": "65 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 6500
+        }
+      ],
+      "gorselDegiskeni": "Xf"
+    },
+    {
+      "kaynakKimligi": "drinks-23",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Soğuk Kahve",
+      "fiyat": "90 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 9000
+        }
+      ],
+      "gorselDegiskeni": "qf"
+    },
+    {
+      "kaynakKimligi": "drinks-24",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Meyveli Soda",
+      "fiyat": "30 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 3000
+        }
+      ],
+      "gorselDegiskeni": "Vf"
+    },
+    {
+      "kaynakKimligi": "drinks-25",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Niğde Gazozu",
+      "fiyat": "40 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 4000
+        }
+      ],
+      "gorselDegiskeni": "bf"
+    },
+    {
+      "kaynakKimligi": "drinks-26",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Beypazarı",
+      "fiyat": "20 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 2000
+        }
+      ],
+      "gorselDegiskeni": "Kf"
+    },
+    {
+      "kaynakKimligi": "drinks-27",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Meyve Suyu (330ml)",
+      "fiyat": "50 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5000
+        }
+      ],
+      "gorselDegiskeni": "tp"
+    },
+    {
+      "kaynakKimligi": "drinks-28",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Pipetli Meyve Suyu",
+      "fiyat": "25 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 2500
+        }
+      ],
+      "gorselDegiskeni": "ep"
+    },
+    {
+      "kaynakKimligi": "drinks-29",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Kakaolu Süt",
+      "fiyat": "25 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 2500
+        }
+      ],
+      "gorselDegiskeni": "Jf"
+    },
+    {
+      "kaynakKimligi": "drinks-30",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Meyve Suyu (1L)",
+      "fiyat": "90 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 9000
+        }
+      ],
+      "gorselDegiskeni": "$f"
+    },
+    {
+      "kaynakKimligi": "drinks-31",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Uludağ Limonata (1L)",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "Hf"
+    },
+    {
+      "kaynakKimligi": "drinks-32",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Fanta (1L)",
+      "fiyat": "80 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 8000
+        }
+      ],
+      "gorselDegiskeni": "Yf"
+    },
+    {
+      "kaynakKimligi": "drinks-33",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Kola (1L)",
+      "fiyat": "80 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 8000
+        }
+      ],
+      "gorselDegiskeni": "Jo"
+    },
+    {
+      "kaynakKimligi": "drinks-34",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Fanta (2.5L)",
+      "fiyat": "120 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 12000
+        }
+      ],
+      "gorselDegiskeni": "Zf"
+    },
+    {
+      "kaynakKimligi": "drinks-35",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Kola (2.5L)",
+      "fiyat": "120 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 12000
+        }
+      ],
+      "gorselDegiskeni": "Jo"
+    },
+    {
+      "kaynakKimligi": "drinks-36",
+      "kategori": "İçecekler",
+      "kaynakYolu": "/drinks",
+      "ad": "Didi (2.5L)",
+      "fiyat": "90 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 9000
+        }
+      ],
+      "gorselDegiskeni": "Qf"
+    },
+    {
+      "kaynakKimligi": "snacks-01",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Yer Fıstığı",
+      "fiyat": "350 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 35000
+        }
+      ],
+      "gorselDegiskeni": "ip",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-02",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Karışık Çerez",
+      "fiyat": "800 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 80000
+        }
+      ],
+      "gorselDegiskeni": "lp",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-03",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Fındık İçi",
+      "fiyat": "1000 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 100000
+        }
+      ],
+      "gorselDegiskeni": "op",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-04",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Antep Fıstığı",
+      "fiyat": "1500 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 150000
+        }
+      ],
+      "gorselDegiskeni": "sp",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-05",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Karışık Atom",
+      "fiyat": "1000 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 100000
+        }
+      ],
+      "gorselDegiskeni": "ap",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-06",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Kabak Çekirdeği",
+      "fiyat": "450 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 45000
+        }
+      ],
+      "gorselDegiskeni": "up",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-07",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Dakota",
+      "fiyat": "200 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 20000
+        }
+      ],
+      "gorselDegiskeni": "cp",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-08",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Soslu Mısır",
+      "fiyat": "175 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 17500
+        }
+      ],
+      "gorselDegiskeni": "dp",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "snacks-09",
+      "kategori": "Çerezler",
+      "kaynakYolu": "/snacks",
+      "ad": "Soslu Yer fıstığı",
+      "fiyat": "175 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 17500
+        }
+      ],
+      "gorselDegiskeni": "fp",
+      "satisBirimi": "kg",
+      "birimDogrulama": "Isletme sahibi: tum cerez fiyatlari kilogram fiyati"
+    },
+    {
+      "kaynakKimligi": "aperatifs-01",
+      "kategori": "Aparatifler",
+      "kaynakYolu": "/aperatifs",
+      "ad": "Mısır",
+      "fiyat": "50 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5000
+        }
+      ],
+      "gorselDegiskeni": "ia"
+    },
+    {
+      "kaynakKimligi": "aperatifs-02",
+      "kategori": "Aparatifler",
+      "kaynakYolu": "/aperatifs",
+      "ad": "Tost",
+      "fiyat": "150 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 15000
+        }
+      ],
+      "gorselDegiskeni": "pp"
+    },
+    {
+      "kaynakKimligi": "aperatifs-03",
+      "kategori": "Aparatifler",
+      "kaynakYolu": "/aperatifs",
+      "ad": "Gözleme (Peynir, Kaşar)",
+      "fiyat": "150 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 15000
+        }
+      ],
+      "gorselDegiskeni": "la"
+    },
+    {
+      "kaynakKimligi": "aperatifs-04",
+      "kategori": "Aparatifler",
+      "kaynakYolu": "/aperatifs",
+      "ad": "Sıkma",
+      "fiyat": "150 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 15000
+        }
+      ],
+      "gorselDegiskeni": "mp"
+    },
+    {
+      "kaynakKimligi": "dondurma-01",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Fıstıklı",
+      "fiyat": "Tam 200 ₺\nYarım 130 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Tam",
+          "fiyatKurus": 20000
+        },
+        {
+          "ad": "Yarım",
+          "fiyatKurus": 13000
+        }
+      ],
+      "gorselDegiskeni": "hp"
+    },
+    {
+      "kaynakKimligi": "dondurma-02",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Çikolatalı",
+      "fiyat": "Tam 100 ₺\nYarım 60 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Tam",
+          "fiyatKurus": 10000
+        },
+        {
+          "ad": "Yarım",
+          "fiyatKurus": 6000
+        }
+      ],
+      "gorselDegiskeni": "gp"
+    },
+    {
+      "kaynakKimligi": "dondurma-03",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Limonlu",
+      "fiyat": "Tam 100 ₺\nYarım 60 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Tam",
+          "fiyatKurus": 10000
+        },
+        {
+          "ad": "Yarım",
+          "fiyatKurus": 6000
+        }
+      ],
+      "gorselDegiskeni": "vp"
+    },
+    {
+      "kaynakKimligi": "dondurma-04",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Sade",
+      "fiyat": "Tam 100 ₺\nYarım 60 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Tam",
+          "fiyatKurus": 10000
+        },
+        {
+          "ad": "Yarım",
+          "fiyatKurus": 6000
+        }
+      ],
+      "gorselDegiskeni": "Ap"
+    },
+    {
+      "kaynakKimligi": "dondurma-05",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Fıstık Karışık",
+      "fiyat": "Tam 140 ₺\nYarım 100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "Tam",
+          "fiyatKurus": 14000
+        },
+        {
+          "ad": "Yarım",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "yp"
+    },
+    {
+      "kaynakKimligi": "dondurma-06",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Kartopu",
+      "fiyat": "75 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7500
+        }
+      ],
+      "gorselDegiskeni": "Sp"
+    },
+    {
+      "kaynakKimligi": "dondurma-07",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "İrem",
+      "fiyat": "60 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 6000
+        }
+      ],
+      "gorselDegiskeni": "wp"
+    },
+    {
+      "kaynakKimligi": "dondurma-08",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Aile Boy",
+      "fiyat": "200 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 20000
+        }
+      ],
+      "gorselDegiskeni": "xp"
+    },
+    {
+      "kaynakKimligi": "dondurma-09",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Fıstıklı İrem",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "Ep"
+    },
+    {
+      "kaynakKimligi": "dondurma-10",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Magnum",
+      "fiyat": "100 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 10000
+        }
+      ],
+      "gorselDegiskeni": "kp"
+    },
+    {
+      "kaynakKimligi": "dondurma-11",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Disk",
+      "fiyat": "85 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 8500
+        }
+      ],
+      "gorselDegiskeni": "Cp"
+    },
+    {
+      "kaynakKimligi": "dondurma-12",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Clasiko",
+      "fiyat": "60 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 6000
+        }
+      ],
+      "gorselDegiskeni": "Tp"
+    },
+    {
+      "kaynakKimligi": "dondurma-13",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Maraş Külah",
+      "fiyat": "75 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7500
+        }
+      ],
+      "gorselDegiskeni": "Pp"
+    },
+    {
+      "kaynakKimligi": "dondurma-14",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Aşkına",
+      "fiyat": "70 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7000
+        }
+      ],
+      "gorselDegiskeni": "Lp"
+    },
+    {
+      "kaynakKimligi": "dondurma-15",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Nagır",
+      "fiyat": "75 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 7500
+        }
+      ],
+      "gorselDegiskeni": "Rp"
+    },
+    {
+      "kaynakKimligi": "dondurma-16",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Oreo",
+      "fiyat": "60 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 6000
+        }
+      ],
+      "gorselDegiskeni": "Mp"
+    },
+    {
+      "kaynakKimligi": "dondurma-17",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Bon Bom",
+      "fiyat": "55 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5500
+        }
+      ],
+      "gorselDegiskeni": "Fp"
+    },
+    {
+      "kaynakKimligi": "dondurma-18",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Wienetta",
+      "fiyat": "35 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 3500
+        }
+      ],
+      "gorselDegiskeni": "zp"
+    },
+    {
+      "kaynakKimligi": "dondurma-19",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Frigola",
+      "fiyat": "45 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 4500
+        }
+      ],
+      "gorselDegiskeni": "Np"
+    },
+    {
+      "kaynakKimligi": "dondurma-20",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Volcano",
+      "fiyat": "55 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5500
+        }
+      ],
+      "gorselDegiskeni": "Op"
+    },
+    {
+      "kaynakKimligi": "dondurma-21",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Maraş Kap",
+      "fiyat": "50 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 5000
+        }
+      ],
+      "gorselDegiskeni": "Ip"
+    },
+    {
+      "kaynakKimligi": "dondurma-22",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Keyf",
+      "fiyat": "30 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 3000
+        }
+      ],
+      "gorselDegiskeni": "_p"
+    },
+    {
+      "kaynakKimligi": "dondurma-23",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Clasic",
+      "fiyat": "25 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 2500
+        }
+      ],
+      "gorselDegiskeni": "jp"
+    },
+    {
+      "kaynakKimligi": "dondurma-24",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Minecraft",
+      "fiyat": "30 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 3000
+        }
+      ],
+      "gorselDegiskeni": "Dp"
+    },
+    {
+      "kaynakKimligi": "dondurma-25",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Gök Kuşağı",
+      "fiyat": "15 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 1500
+        }
+      ],
+      "gorselDegiskeni": "Bp"
+    },
+    {
+      "kaynakKimligi": "dondurma-26",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Düz Parmak",
+      "fiyat": "10 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 1000
+        }
+      ],
+      "gorselDegiskeni": "Up"
+    },
+    {
+      "kaynakKimligi": "dondurma-27",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Conbo",
+      "fiyat": "15 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 1500
+        }
+      ],
+      "gorselDegiskeni": "Vp"
+    },
+    {
+      "kaynakKimligi": "dondurma-28",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Visi",
+      "fiyat": "10 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 1000
+        }
+      ],
+      "gorselDegiskeni": "bp"
+    },
+    {
+      "kaynakKimligi": "dondurma-29",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Duo",
+      "fiyat": "10 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 1000
+        }
+      ],
+      "gorselDegiskeni": "Kp"
+    },
+    {
+      "kaynakKimligi": "dondurma-30",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Korpi",
+      "fiyat": "15 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 1500
+        }
+      ],
+      "gorselDegiskeni": "Wp"
+    },
+    {
+      "kaynakKimligi": "dondurma-31",
+      "kategori": "Dondurmalar",
+      "kaynakYolu": "/dondurma",
+      "ad": "Twister",
+      "fiyat": "15 ₺",
+      "fiyatSecenekleri": [
+        {
+          "ad": "",
+          "fiyatKurus": 1500
+        }
+      ],
+      "gorselDegiskeni": "Hp"
+    }
+  ]
+}

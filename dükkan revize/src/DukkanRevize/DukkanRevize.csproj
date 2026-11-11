@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+    <ProjectGuid>{8BFA7213-A376-41CE-AEAB-94320EF04A86}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DukkanRevize</RootNamespace>
+    <AssemblyName>DukkanRevize</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <PlatformTarget>x86</PlatformTarget>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <OutputPath>..\..\.local\bin\</OutputPath>
+    <BaseIntermediateOutputPath>..\..\.local\obj\</BaseIntermediateOutputPath>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Core\ModuleCatalog.cs" />
+    <Compile Include="Data\SqliteDatabase.cs" />
+    <Compile Include="Diagnostics\DeviceCheck.cs" />
+    <Compile Include="UI\MainForm.cs" />
+    <Compile Include="UI\PrintProbe.cs" />
+    <None Include="App.config" />
+    <None Include="app.manifest" />
+    <Content Include="..\..\.local\dependencies\sqlite3.dll">
+      <Link>sqlite3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

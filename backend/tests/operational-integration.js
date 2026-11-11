@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import {withConnection} from '../src/database.js';
+export async function checkOperationalFlows({config,call,json,command,cookie,ownerId,waiterId}){
+  const post=async(path,data)=>json(await call(path,command(data),cookie));const get=async path=>json(await call(path,undefined,cookie));
+  const meta=await get('/api/definitions'),unit=meta.units.find(row=>row.code==='adet');
+  const register=await post('/api/finance/registers',{code:'operations',name:'İşletim testi'}),shift=await post('/api/finance/shifts',{registerId:register.id,openingMinor:'100000'});
+  const before=await get('/api/changes');
+  await post('/api/finance/transfers',{shiftId:shift.id,fromUserId:ownerId,toUserId:waiterId,amountMinor:'1000',reason:'Personele para teslimi'});
+  let cash=(await get('/api/finance/cash')).shifts.find(row=>row.id===shift.id);assert.equal(cash.expectedMinor,'100000','Cash transfer is not another receipt');
+  assert.equal((await call(`/api/finance/shifts/${shift.id}/close`,command({revision:cash.revision,countedMinor:'100000',countedPosMinor:'0',toUserId:waiterId,reason:'Henüz teslim alınmadı'}),cookie)).status,409);
+  await post('/api/finance/transfers',{shiftId:shift.id,fromUserId:waiterId,toUserId:ownerId,amountMinor:'1000',reason:'Kasaya geri teslim'});
+  assert.equal((await get(`/api/changes?after=${before.cursor}`)).changed,true);
+  const supplier=await post('/api/finance/parties',{code:'ops-supplier',name:'İşletim tedarikçisi',isCustomer:false,isSupplier:true,creditLimitMinor:null});
+  await json(await call(`/api/finance/parties/${supplier.id}`,command({revision:'1',name:'Güncel tedarikçi',phone:'05550000000',creditLimitMinor:null,isActive:true}),cookie,'PATCH'));
+  const product=await post('/api/definitions/products',{code:'ops-stock',name:'Partili ürün',unitId:unit.id,type:'ready',stockMode:'direct',stockTiming:'sale',stationId:null,trackLots:true});
+  const warehouses=(await get('/api/stock')).warehouses;const warehouseId=warehouses[0].id;
+  const purchase=await post('/api/purchases',{number:'OPS-001',supplierId:supplier.id,dueDate:'2026-12-01',items:[{productId:product.id,unitId:unit.id,quantity:'10',actualBaseQuantity:'10',unitPriceMinor:'100'}]});
+  const details=await get(`/api/purchases/${purchase.id}`);await post(`/api/purchases/${purchase.id}/receive`,{warehouseId,lots:[{lineId:details.lines[0].id,code:'OPS-EXPIRED',expiresDate:'2020-01-01'}]});
+  await post(`/api/finance/parties/${supplier.id}/entries`,{accountType:'payable',kind:'payment',amountMinor:'300',method:'cash',shiftId:shift.id,description:'Cari ekrandan kısmi ödeme'});
+  const paid=await post(`/api/purchases/${purchase.id}/payments`,{amountMinor:'700',method:'card',shiftId:shift.id});assert.equal(paid.remainingMinor,'0');
+  assert.equal((await call(`/api/purchases/${purchase.id}/payments`,command({amountMinor:'1',method:'card',shiftId:shift.id}),cookie)).status,409);
+  const option=await post(`/api/definitions/products/${product.id}/options`,{revision:'1',code:'one',name:'Adet',unitId:unit.id,priceMinor:'200',basisQuantity:'1',requiresWeight:false,components:[]});
+  let group=(await post('/api/sales/open',{tableId:null})).group;
+  const stockPending=(await post(`/api/sales/groups/${group.id}/orders`,{revision:group.revision,warehouseId,items:[{optionId:option.id,quantity:'1'}]})).group;assert.equal(stockPending.lines[0].stockIssue.code,'INSUFFICIENT_STOCK','Order is saved, expired lot remains unconsumed');
+  const lot=(await get('/api/stock')).lots.find(row=>row.code==='OPS-EXPIRED');assert.ok(lot);
+  await post('/api/stock/movements',{kind:'count',warehouseId,productId:product.id,lotId:lot.id,quantity:'9',expectedQuantity:'10',reason:'Parti sayımı'});
+  const destination=await post('/api/stock/warehouses',{code:'ops-secondary',name:'İkinci depo'});
+  await post('/api/stock/transfers',{fromWarehouseId:warehouseId,toWarehouseId:destination.id,productId:product.id,quantity:'2',reason:'Partiyi başka depoya aktar'});
+  const stock=await get('/api/stock');assert.equal(stock.balances.find(row=>row.productId===product.id&&row.warehouseId===destination.id).quantity,'2.000000');
+  await post('/api/stock/movements',{kind:'waste',warehouseId:destination.id,productId:product.id,lotId:lot.id,quantity:'2',reason:'Süresi geçmiş parti imhası'});
+  await post(`/api/definitions/products/${product.id}/options`,{revision:'2',optionId:option.id,code:'one',name:'Yeni servis',unitId:unit.id,priceMinor:'250',basisQuantity:'1',requiresWeight:false,recipeVersionId:null,components:[],isActive:true});
+  await withConnection(config,async connection=>{const [[row]]=await connection.execute('SELECT COUNT(*) AS count FROM sale_option_versions WHERE sale_option_id=?',[option.id]);assert.equal(Number(row.count),2);});
+}

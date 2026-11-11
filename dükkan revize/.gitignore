@@ -1,0 +1,7 @@
+.local/
+dagitim/
+bin/
+obj/
+*.user
+*.suo
+

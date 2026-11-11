@@ -1,0 +1,20 @@
+.party-summary{display:flex;gap:40px;background:#eaf1e5;border:1px solid #d5dfce;border-radius:12px;padding:20px 24px;margin-bottom:20px}
+.party-summary span,.party-balance small{display:block;color:var(--muted);font-size:13px;margin-bottom:7px}
+.party-summary strong{font-size:26px}
+.party-layout{display:grid;grid-template-columns:minmax(270px,.7fr) minmax(0,1.5fr);gap:20px;align-items:start}
+.party-directory{padding:18px}.party-directory>label{font-size:13px;display:block;margin-bottom:15px}
+.party-directory input,.party-directory select{width:100%;box-sizing:border-box;min-height:44px;border:1px solid var(--border);border-radius:8px;padding:10px;background:white;margin-top:6px;font:inherit}
+#party-list{display:grid;gap:8px;max-height:65vh;overflow-y:auto}
+.party-person{display:flex;justify-content:space-between;gap:12px;width:100%;padding:16px;text-align:left;border:1px solid var(--border);border-radius:9px;background:var(--paper);color:var(--ink)}
+.party-person.selected{background:#eef3e9;border-color:var(--accent);box-shadow:inset 3px 0 var(--accent)}
+.party-person>span:last-child{text-align:right;white-space:nowrap}.party-person strong{font-size:14px}.party-person small{display:block;color:var(--muted);font-size:11px;margin-top:7px}
+.party-detail-heading{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:18px}
+.party-detail h3{font-size:24px;margin:8px 0}.party-eyebrow{font-size:11px;color:var(--muted);letter-spacing:.08em}
+.party-balance{text-align:right;white-space:nowrap}.party-balance strong{font-size:27px}.party-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.party-workspace .business-form{max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;padding:18px}
+.party-workspace .business-form label{margin:0}.party-workspace .business-form>.error,.party-workspace .business-form>details{grid-column:1/-1}
+.party-workspace .business-form>.error:empty{display:none}.party-workspace .business-form>button{justify-self:start;grid-column:1/-1}
+.party-workspace details{margin-top:18px}.party-workspace summary{cursor:pointer}.party-caption{font-size:11px!important;margin-top:12px!important}.party-empty{padding:15px 0}
+.purchase-list{display:grid;gap:12px}.purchase-list article{border:1px solid var(--border);padding:18px;border-radius:10px}.purchase-list h4{margin:0 0 10px}.purchase-workspace>.panel{margin-bottom:18px}.purchase-workspace .business-form{max-width:none}
+@media(max-width:900px){.party-layout{grid-template-columns:1fr}.party-detail-heading{flex-wrap:wrap}#party-list{max-height:35vh}}
+@media(max-width:560px){.party-summary{gap:22px;padding:18px}.party-summary strong{font-size:22px}.party-workspace .business-form{grid-template-columns:1fr}.party-balance{text-align:left}}

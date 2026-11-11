@@ -1,0 +1,8 @@
+{
+  "folders": [
+    { "name": "dükkan", "path": "." }
+  ],
+  "settings": {
+    "git.autoRepositoryDetection": false
+  }
+}

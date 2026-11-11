@@ -1,0 +1,1646 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Nar &#199;i&#231;e&#287;i - Ekran &#214;nizlemesi</title>
+<style>:root{color-scheme:light dark}body{margin:0;padding:clamp(12px,3vw,30px);background:#f4f4f1}#nc-flow{max-width:1100px;margin:0 auto}@media(prefers-color-scheme:dark){body{background:#171a1b}}@supports not (color:light-dark(white,black)){#nc-flow{--nc-bg:#f5f4f0;--nc-panel:#fff;--nc-ink:#282b28;--nc-soft:#62685f;--nc-line:#dfe2d9;--nc-accent:#245447;--nc-on:#fff;--nc-tint:#e8f1e9;--nc-warn:#765322;--nc-wash:#fff4df;--nc-red:#9a3737}}</style>
+</head><body>
+<style>
+#nc-flow { --nc-bg:light-dark(#f5f4f0,#1b1d20);--nc-panel:light-dark(#fff,#24272b);--nc-ink:light-dark(#282b28,#f1f1eb);--nc-soft:light-dark(#62685f,#bbc2b8);--nc-line:light-dark(#dfE2d9,#41473f);--nc-accent:light-dark(#245447,#9bceb9);--nc-on:light-dark(#fff,#15382d);--nc-tint:light-dark(#e8f1e9,#263f34);--nc-warn:light-dark(#765322,#edc78a);--nc-wash:light-dark(#fff4df,#3f3424);--nc-red:light-dark(#9a3737,#ffb6b6);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--nc-ink);font-size:14px;line-height:1.5;width:100%;color-scheme:light dark; }
+#nc-flow * { box-sizing:border-box; }
+#nc-flow [hidden] { display:none!important; }
+#nc-flow button,#nc-flow input,#nc-flow select,#nc-flow textarea { font:inherit;color:inherit; }
+#nc-flow button { border:1px solid var(--nc-line);border-radius:9px;background:var(--nc-panel);padding:9px 13px;min-height:42px;text-align:left; }
+#nc-flow button:hover { background:var(--nc-tint); }
+#nc-flow button:disabled { opacity:.5;cursor:default; }
+#nc-flow button[aria-pressed=true],#nc-flow .nc-main { background:var(--nc-accent);color:var(--nc-on);border-color:var(--nc-accent); }
+#nc-flow button.nc-plain { border-color:transparent;background:transparent; }
+#nc-flow input,#nc-flow select,#nc-flow textarea { background:var(--nc-panel);border:1px solid var(--nc-line);border-radius:8px;padding:9px 10px;min-width:0;width:100%;min-height:42px; }
+#nc-flow input,#nc-flow textarea { font-size:16px; }
+#nc-flow label { display:grid;gap:5px;min-width:0; }
+#nc-flow h2,#nc-flow h3,#nc-flow p { margin:0; }
+#nc-flow h2 { font-size:21px;font-weight:600;letter-spacing:-.4px; }
+#nc-flow h3 { font-size:16px;font-weight:600; }
+#nc-flow a { color:var(--nc-accent); }
+#nc-flow small { font-size:12px; }
+#nc-flow .nc-preview { display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px; }
+#nc-flow .nc-preview label { display:flex;align-items:center;gap:8px;font-size:12px; }
+#nc-flow .nc-preview select { width:auto;min-height:36px;padding:5px 8px; }
+#nc-flow .nc-window { border:1px solid var(--nc-line);border-radius:14px;background:var(--nc-bg);overflow:clip; }
+#nc-flow .nc-head { display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px 20px;background:var(--nc-panel);border-bottom:1px solid var(--nc-line);flex-wrap:wrap; }
+#nc-flow .nc-brand { font-size:17px;font-weight:650;letter-spacing:-.4px; }
+#nc-flow .nc-muted { color:var(--nc-soft); }
+#nc-flow .nc-kicker { font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--nc-soft); }
+#nc-flow .nc-state { background:var(--nc-tint);color:var(--nc-accent);padding:5px 9px;border-radius:6px;font-size:12px; }
+#nc-flow .nc-tabs { display:flex;gap:7px;flex-wrap:wrap;padding:13px 20px;background:var(--nc-panel);border-bottom:1px solid var(--nc-line); }
+#nc-flow .nc-tabs button { flex:1;min-width:110px;text-align:center; }
+#nc-flow .nc-body { padding:20px; }
+#nc-flow .nc-bar { display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px; }
+#nc-flow .nc-bar small { display:block; }
+#nc-flow .nc-row { display:flex;align-items:center;gap:8px;flex-wrap:wrap; }
+#nc-flow .nc-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px; }
+#nc-flow .nc-table { min-height:128px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;gap:8px; }
+#nc-flow .nc-table.nc-busy { background:var(--nc-tint);border-color:var(--nc-line);color:var(--nc-ink); }
+#nc-flow .nc-table strong { font-size:17px;font-weight:600; }
+#nc-flow .nc-table span:last-child { font-size:12px; }
+#nc-flow .nc-split { display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start; }
+#nc-flow .nc-panel { background:var(--nc-panel);border:1px solid var(--nc-line);border-radius:10px;padding:16px;min-width:0; }
+#nc-flow .nc-products { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px; }
+#nc-flow .nc-product-card { position:relative;min-width:0; }
+#nc-flow .nc-product { display:flex;flex-direction:column;justify-content:space-between;gap:9px;min-height:100px;width:100%;height:100%;overflow-wrap:anywhere; }
+#nc-flow .nc-product span { font-size:12px;color:var(--nc-soft); }
+#nc-flow .nc-product strong { font-weight:600;padding-inline-end:42px;min-height:44px;display:flex;align-items:center; }
+#nc-flow button.nc-favorite { position:absolute;top:5px;right:5px;width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-size:24px;border-color:transparent; }
+#nc-flow .nc-search-row { display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center; }
+#nc-flow .nc-catalog-controls { display:flex;align-items:end;gap:10px;flex-wrap:wrap;margin-top:12px; }
+#nc-flow .nc-catalog-controls label { flex:1;min-width:140px; }
+#nc-flow .nc-catalog-filters { display:flex;gap:7px;flex-wrap:wrap; }
+#nc-flow .nc-results { margin-top:10px;color:var(--nc-soft);font-size:12px; }
+#nc-flow .nc-products .nc-empty { grid-column:1/-1; }
+#nc-flow .nc-empty p + p { margin-top:6px; }
+#nc-flow .nc-empty button { margin-top:10px; }
+#nc-flow .nc-picker { margin-top:13px;padding:13px;background:var(--nc-tint);border-radius:9px;display:grid;gap:10px; }
+#nc-flow .nc-picker .nc-row button { flex:1; }
+#nc-flow .nc-variants { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px; }
+#nc-flow .nc-variant { display:grid;gap:4px; }
+#nc-flow .nc-variant small { color:var(--nc-soft); }
+#nc-flow .nc-quick-status { display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:11px 0;color:var(--nc-accent);font-size:13px; }
+#nc-flow .nc-weight { display:flex;align-items:center;gap:7px;max-width:230px; }
+#nc-flow .nc-weight input { width:115px; }
+#nc-flow .nc-note-editor { display:grid;gap:7px;margin-top:9px; }
+#nc-flow .nc-transfer { margin-bottom:16px;display:grid;gap:12px; }
+#nc-flow .nc-check { display:flex;align-items:start;gap:9px; }
+#nc-flow .nc-check input { width:20px;min-height:20px;margin-top:2px;flex-shrink:0; }
+#nc-flow .nc-payment-amount input { font-size:27px;font-weight:600;padding:15px; }
+#nc-flow .nc-payment-methods { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px; }
+#nc-flow .nc-payment-methods button { min-height:66px;text-align:center;font-size:18px;font-weight:600; }
+#nc-flow .nc-payment-extra { margin-top:16px;padding-top:12px;border-top:1px solid var(--nc-line); }
+#nc-flow .nc-payment-extra label { margin-top:10px; }
+#nc-flow .nc-receipt { margin-top:16px;padding-top:14px;border-top:1px solid var(--nc-line); }
+#nc-flow .nc-receipt-heading { margin:0;font:inherit;font-weight:600; }
+#nc-flow .nc-receipt-list { list-style:none;margin:0;padding:0; }
+#nc-flow .nc-receipt-line { padding:11px 0;border-bottom:1px solid var(--nc-line); }
+#nc-flow .nc-receipt-top { display:flex;justify-content:space-between;align-items:start;gap:12px; }
+#nc-flow .nc-receipt-top strong { min-width:0;overflow-wrap:anywhere;font-weight:550; }
+#nc-flow .nc-receipt-amount { flex-shrink:0;font-variant-numeric:tabular-nums; }
+#nc-flow .nc-receipt-group { margin-top:14px; }
+#nc-flow .nc-receipt-line .nc-item-detail { overflow-wrap:anywhere; }
+#nc-flow .nc-pay-item-controls { display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:9px; }
+#nc-flow .nc-pay-item-controls .nc-check { align-items:center; }
+#nc-flow .nc-pay-item-controls .nc-pay-item-qty { width:135px;font-size:12px; }
+#nc-flow .nc-pay-mode { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px; }
+#nc-flow .nc-payment-selection { margin-top:9px; }
+#nc-flow .nc-item { padding:13px 0;border-bottom:1px solid var(--nc-line); }
+#nc-flow .nc-item-top { display:flex;justify-content:space-between;gap:9px;align-items:start; }
+#nc-flow .nc-item-top strong { font-weight:550; }
+#nc-flow .nc-item-detail { color:var(--nc-soft);font-size:12px;margin-top:3px; }
+#nc-flow .nc-item-actions { display:flex;align-items:center;gap:6px;margin-top:7px;flex-wrap:wrap; }
+#nc-flow .nc-item-actions button { padding:4px 8px;min-height:34px;font-size:12px; }
+#nc-flow .nc-tag { font-size:11px;display:inline-block;background:var(--nc-bg);border-radius:5px;padding:3px 7px;color:var(--nc-soft); }
+#nc-flow .nc-tag.nc-draft { color:var(--nc-warn);background:var(--nc-wash); }
+#nc-flow .nc-tag.nc-ready { color:var(--nc-accent);background:var(--nc-tint); }
+#nc-flow .nc-total { display:flex;justify-content:space-between;gap:10px;padding:13px 0;font-size:17px; }
+#nc-flow .nc-total strong { font-weight:650; }
+#nc-flow .nc-actions { display:grid;gap:8px;margin-top:10px; }
+#nc-flow .nc-actions button { text-align:center; }
+#nc-flow .nc-note { margin-top:10px;color:var(--nc-soft);font-size:12px; }
+#nc-flow .nc-notice { padding:11px 13px;border-radius:8px;background:var(--nc-wash);color:var(--nc-warn);font-size:13px;margin:12px 0; }
+#nc-flow .nc-error { color:var(--nc-red);font-size:13px;margin-top:8px; }
+#nc-flow .nc-columns { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px; }
+#nc-flow .nc-column-title { display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:12px; }
+#nc-flow .nc-ticket { padding:13px;border:1px solid var(--nc-line);background:var(--nc-panel);border-radius:9px;margin-bottom:10px; }
+#nc-flow .nc-ticket p { margin:8px 0;font-weight:550; }
+#nc-flow .nc-ticket button { margin-top:10px;width:100%;text-align:center; }
+#nc-flow .nc-dl { display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin:15px 0; }
+#nc-flow .nc-dl dt,#nc-flow .nc-dl dd { margin:0; }
+#nc-flow .nc-dl dd { font-variant-numeric:tabular-nums;text-align:right; }
+#nc-flow .nc-inputs { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+#nc-flow .nc-inputs .nc-full { grid-column:1/-1; }
+#nc-flow .nc-empty { color:var(--nc-soft);padding:18px 0; }
+#nc-flow .nc-footer { padding:11px 20px;background:var(--nc-panel);border-top:1px solid var(--nc-line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--nc-soft); }
+#nc-flow .nc-live { padding:0 20px 12px;min-height:18px;color:var(--nc-accent);font-size:13px; }
+#nc-flow .nc-phone-only { display:none; }
+#nc-flow .nc-cancelled { text-decoration:line-through;color:var(--nc-soft); }
+#nc-flow .nc-cancel-form { margin-top:10px;display:grid;gap:8px; }
+#nc-flow[data-layout=phone] .nc-window { max-width:430px;margin-inline:auto; }
+#nc-flow[data-layout=phone] .nc-split,#nc-flow[data-layout=phone] .nc-columns { grid-template-columns:1fr; }
+#nc-flow[data-layout=phone] .nc-grid { grid-template-columns:1fr 1fr; }
+#nc-flow[data-layout=phone] .nc-body { padding:14px; }
+#nc-flow[data-layout=phone] .nc-head,#nc-flow[data-layout=phone] .nc-tabs { padding:13px 14px; }
+#nc-flow[data-layout=phone] .nc-tabs button { min-width:40%; }
+#nc-flow[data-layout=phone] .nc-phone-only { display:block; }
+#nc-flow[data-layout=phone][data-order-mode=account] .nc-order-catalog,#nc-flow[data-layout=phone][data-order-mode=products] .nc-order-account { display:none; }
+#nc-flow[data-density=compact] .nc-item { padding:8px 0; }
+#nc-flow[data-density=compact] .nc-product { min-height:85px; }
+@media(max-width:680px) { #nc-flow .nc-split,#nc-flow .nc-columns { grid-template-columns:1fr; } #nc-flow .nc-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } #nc-flow .nc-body { padding:14px; } #nc-flow .nc-head,#nc-flow .nc-tabs { padding:13px 14px; } }
+@media(max-width:680px) { #nc-flow .nc-phone-only { display:block; } #nc-flow[data-order-mode=account] .nc-order-catalog,#nc-flow[data-order-mode=products] .nc-order-account { display:none; } }
+@media(max-width:380px) { #nc-flow .nc-inputs,#nc-flow .nc-products { grid-template-columns:1fr; } #nc-flow .nc-tabs button { min-width:40%; } #nc-flow .nc-product { padding:10px; } }
+@media(pointer:coarse) { #nc-flow button,#nc-flow .nc-item-actions button { min-height:44px; } }
+</style>
+<div id="nc-flow" data-layout="desktop" data-density="comfortable" aria-label="Nar Çiçeği masa, sipariş, mutfak ve ödeme ekran taslağı">
+  <div class="nc-preview">
+    <span class="nc-muted">Ekran planı · Örnek masa ve işlemler · <a href="YONETIM-ONIZLEME.html">Yönetim ekranları ↗</a></span>
+    <label>Görünüm <select id="nc-layout"><option value="desktop">Bilgisayar</option><option value="phone">Telefon</option></select></label>
+  </div>
+  <div class="nc-window">
+    <header class="nc-head"><div><div class="nc-kicker">İşletme yönetimi</div><div class="nc-brand">Nar Çiçeği</div></div><span class="nc-state">Yerel ağ göstergesi · Örnek</span></header>
+    <nav class="nc-tabs" aria-label="Günlük iş akışı">
+      <button type="button" data-view="tables" aria-pressed="true" class="cursor-interaction">Masalar</button>
+      <button type="button" data-view="order" aria-pressed="false" class="cursor-interaction">Sipariş / Adisyon</button>
+      <button type="button" data-view="kitchen" aria-pressed="false" class="cursor-interaction">Mutfak / Bar</button>
+      <button type="button" data-view="payment" aria-pressed="false" class="cursor-interaction">Ödeme</button>
+    </nav>
+    <main id="nc-content" class="nc-body"></main>
+    <div id="nc-live" class="nc-live" aria-live="polite"></div>
+    <footer class="nc-footer"><span><a href="https://menu.narcicegi.com.tr" target="_blank" rel="noopener noreferrer">Menü</a> · 85 ürün / 94 fiyat seçeneği · 21.10.2026</span><span>PET ayran fiyatı, bardak hacimleri ve Sade gram fiyatı/gramajları: örnek</span></footer>
+  </div>
+</div>
+<script>
+(() => {
+  const root = document.getElementById('nc-flow');
+  const content = root.querySelector('#nc-content');
+  const live = root.querySelector('#nc-live');
+  const layout = root.querySelector('#nc-layout');
+  const money = value => new Intl.NumberFormat('tr-TR', {style:'currency',currency:'TRY',maximumFractionDigits:2}).format(value / 100);
+  const safe = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const products = [
+    {
+      "id": "adana",
+      "name": "Adana Kebap",
+      "category": "Yemekler",
+      "sourceId": "foods-01",
+      "sourcePrice": "Dürüm 250 ₺ \nPorsiyon 500 ₺",
+      "prep": "Mutfak",
+      "variants": [
+        {
+          "name": "Dürüm",
+          "price": 25000,
+          "unit": "adet"
+        },
+        {
+          "name": "Porsiyon",
+          "price": 50000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "menu-foods-02",
+      "name": "Kuşbaşı Kebap",
+      "category": "Yemekler",
+      "sourceId": "foods-02",
+      "sourcePrice": "Dürüm 250 ₺ \nPorsiyon 500 ₺",
+      "prep": "Mutfak",
+      "variants": [
+        {
+          "name": "Dürüm",
+          "price": 25000,
+          "unit": "adet"
+        },
+        {
+          "name": "Porsiyon",
+          "price": 50000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "menu-foods-03",
+      "name": "Tavuk Kanat",
+      "category": "Yemekler",
+      "sourceId": "foods-03",
+      "sourcePrice": "300₺",
+      "prep": "Mutfak",
+      "price": 30000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-foods-04",
+      "name": "Tavuk Sarma",
+      "category": "Yemekler",
+      "sourceId": "foods-04",
+      "sourcePrice": "Dürüm 150 ₺ \nPorsiyon 300 ₺",
+      "prep": "Mutfak",
+      "variants": [
+        {
+          "name": "Dürüm",
+          "price": 15000,
+          "unit": "adet"
+        },
+        {
+          "name": "Porsiyon",
+          "price": 30000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "menu-foods-05",
+      "name": "Tavuk Şiş",
+      "category": "Yemekler",
+      "sourceId": "foods-05",
+      "sourcePrice": "Dürüm 150 ₺ \nPorsiyon 300 ₺",
+      "prep": "Mutfak",
+      "variants": [
+        {
+          "name": "Dürüm",
+          "price": 15000,
+          "unit": "adet"
+        },
+        {
+          "name": "Porsiyon",
+          "price": 30000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "nar",
+      "name": "Nar Suyu",
+      "category": "İçecekler",
+      "sourceId": "drinks-01",
+      "sourcePrice": "75 ₺",
+      "prep": "Bar",
+      "price": 7500,
+      "unit": "bardak"
+    },
+    {
+      "id": "menu-drinks-02",
+      "name": "Nar Suyu (500ml)",
+      "category": "İçecekler",
+      "sourceId": "drinks-02",
+      "sourcePrice": "225 ₺",
+      "prep": "Bar",
+      "price": 22500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-03",
+      "name": "Nar Suyu (1.5L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-03",
+      "sourcePrice": "675 ₺",
+      "prep": "Bar",
+      "price": 67500,
+      "unit": "adet"
+    },
+    {
+      "id": "cay",
+      "name": "Çay",
+      "category": "İçecekler",
+      "sourceId": "drinks-04",
+      "sourcePrice": "20 ₺",
+      "prep": "Bar",
+      "price": 2000,
+      "unit": "bardak"
+    },
+    {
+      "id": "ayran",
+      "name": "Ayran",
+      "category": "İçecekler",
+      "sourceId": "drinks-05",
+      "sourcePrice": "50 ₺",
+      "prep": "Bar",
+      "variants": [
+        {
+          "name": "Standart bardak",
+          "price": 5000,
+          "unit": "bardak",
+          "size": "300 ml · hacim örnek"
+        },
+        {
+          "name": "PET bardak",
+          "price": 3000,
+          "unit": "bardak",
+          "size": "200 ml · fiyat ve hacim örnek",
+          "example": true
+        }
+      ]
+    },
+    {
+      "id": "menu-drinks-06",
+      "name": "Şalgam",
+      "category": "İçecekler",
+      "sourceId": "drinks-06",
+      "sourcePrice": "50 ₺",
+      "prep": null,
+      "price": 5000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-07",
+      "name": "Şalgam (1L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-07",
+      "sourcePrice": "100 ₺",
+      "prep": null,
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-08",
+      "name": "Limonata",
+      "category": "İçecekler",
+      "sourceId": "drinks-08",
+      "sourcePrice": "100 ₺",
+      "prep": "Bar",
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-09",
+      "name": "Nescafe",
+      "category": "İçecekler",
+      "sourceId": "drinks-09",
+      "sourcePrice": "70 ₺",
+      "prep": "Bar",
+      "price": 7000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-10",
+      "name": "Türk Kahvesi",
+      "category": "İçecekler",
+      "sourceId": "drinks-10",
+      "sourcePrice": "80 ₺",
+      "prep": "Bar",
+      "price": 8000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-11",
+      "name": "Dibek Kahvesi",
+      "category": "İçecekler",
+      "sourceId": "drinks-11",
+      "sourcePrice": "100 ₺",
+      "prep": "Bar",
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-12",
+      "name": "Menengiç Kahvesi",
+      "category": "İçecekler",
+      "sourceId": "drinks-12",
+      "sourcePrice": "100 ₺",
+      "prep": "Bar",
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-13",
+      "name": "Oralet",
+      "category": "İçecekler",
+      "sourceId": "drinks-13",
+      "sourcePrice": "20 ₺",
+      "prep": "Bar",
+      "price": 2000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-14",
+      "name": "Kola",
+      "category": "İçecekler",
+      "sourceId": "drinks-14",
+      "sourcePrice": "70 ₺",
+      "prep": null,
+      "price": 7000,
+      "unit": "adet",
+      "displayName": "Kutu Kola",
+      "packaging": "Kutu"
+    },
+    {
+      "id": "menu-drinks-15",
+      "name": "Fanta",
+      "category": "İçecekler",
+      "sourceId": "drinks-15",
+      "sourcePrice": "70 ₺",
+      "prep": null,
+      "price": 7000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-16",
+      "name": "Çörçil",
+      "category": "İçecekler",
+      "sourceId": "drinks-16",
+      "sourcePrice": "50 ₺",
+      "prep": "Bar",
+      "price": 5000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-17",
+      "name": "Kola",
+      "category": "İçecekler",
+      "sourceId": "drinks-17",
+      "sourcePrice": "40 ₺",
+      "prep": null,
+      "price": 4000,
+      "unit": "adet",
+      "displayName": "Cam Kola",
+      "packaging": "Cam şişe"
+    },
+    {
+      "id": "menu-drinks-18",
+      "name": "Redbull (Küçük)",
+      "category": "İçecekler",
+      "sourceId": "drinks-18",
+      "sourcePrice": "80 ₺",
+      "prep": null,
+      "price": 8000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-19",
+      "name": "Redbull (Orta)",
+      "category": "İçecekler",
+      "sourceId": "drinks-19",
+      "sourcePrice": "100 ₺",
+      "prep": null,
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-20",
+      "name": "Redbull (Büyük)",
+      "category": "İçecekler",
+      "sourceId": "drinks-20",
+      "sourcePrice": "120 ₺",
+      "prep": null,
+      "price": 12000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-21",
+      "name": "Didi Soğuk Çay",
+      "category": "İçecekler",
+      "sourceId": "drinks-21",
+      "sourcePrice": "50 ₺",
+      "prep": null,
+      "price": 5000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-22",
+      "name": "Fuse Tea",
+      "category": "İçecekler",
+      "sourceId": "drinks-22",
+      "sourcePrice": "65 ₺",
+      "prep": null,
+      "price": 6500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-23",
+      "name": "Soğuk Kahve",
+      "category": "İçecekler",
+      "sourceId": "drinks-23",
+      "sourcePrice": "90 ₺",
+      "prep": null,
+      "price": 9000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-24",
+      "name": "Meyveli Soda",
+      "category": "İçecekler",
+      "sourceId": "drinks-24",
+      "sourcePrice": "30 ₺",
+      "prep": null,
+      "price": 3000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-25",
+      "name": "Niğde Gazozu",
+      "category": "İçecekler",
+      "sourceId": "drinks-25",
+      "sourcePrice": "40 ₺",
+      "prep": null,
+      "price": 4000,
+      "unit": "adet"
+    },
+    {
+      "id": "beypazari",
+      "name": "Beypazarı",
+      "category": "İçecekler",
+      "sourceId": "drinks-26",
+      "sourcePrice": "20 ₺",
+      "prep": null,
+      "price": 2000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-27",
+      "name": "Meyve Suyu (330ml)",
+      "category": "İçecekler",
+      "sourceId": "drinks-27",
+      "sourcePrice": "50 ₺",
+      "prep": null,
+      "price": 5000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-28",
+      "name": "Pipetli Meyve Suyu",
+      "category": "İçecekler",
+      "sourceId": "drinks-28",
+      "sourcePrice": "25 ₺",
+      "prep": null,
+      "price": 2500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-29",
+      "name": "Kakaolu Süt",
+      "category": "İçecekler",
+      "sourceId": "drinks-29",
+      "sourcePrice": "25 ₺",
+      "prep": null,
+      "price": 2500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-30",
+      "name": "Meyve Suyu (1L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-30",
+      "sourcePrice": "90 ₺",
+      "prep": null,
+      "price": 9000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-31",
+      "name": "Uludağ Limonata (1L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-31",
+      "sourcePrice": "100 ₺",
+      "prep": null,
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-32",
+      "name": "Fanta (1L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-32",
+      "sourcePrice": "80 ₺",
+      "prep": null,
+      "price": 8000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-33",
+      "name": "Kola (1L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-33",
+      "sourcePrice": "80 ₺",
+      "prep": null,
+      "price": 8000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-34",
+      "name": "Fanta (2.5L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-34",
+      "sourcePrice": "120 ₺",
+      "prep": null,
+      "price": 12000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-35",
+      "name": "Kola (2.5L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-35",
+      "sourcePrice": "120 ₺",
+      "prep": null,
+      "price": 12000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-drinks-36",
+      "name": "Didi (2.5L)",
+      "category": "İçecekler",
+      "sourceId": "drinks-36",
+      "sourcePrice": "90 ₺",
+      "prep": null,
+      "price": 9000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-snacks-01",
+      "name": "Yer Fıstığı",
+      "category": "Çerezler",
+      "sourceId": "snacks-01",
+      "sourcePrice": "350 ₺",
+      "prep": null,
+      "pricePerKg": 35000,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 35,
+          "pricePerKg": 35000,
+          "unit": "g",
+          "weighed": true,
+          "size": "350 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-02",
+      "name": "Karışık Çerez",
+      "category": "Çerezler",
+      "sourceId": "snacks-02",
+      "sourcePrice": "800 ₺",
+      "prep": null,
+      "pricePerKg": 80000,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 80,
+          "pricePerKg": 80000,
+          "unit": "g",
+          "weighed": true,
+          "size": "800 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-03",
+      "name": "Fındık İçi",
+      "category": "Çerezler",
+      "sourceId": "snacks-03",
+      "sourcePrice": "1000 ₺",
+      "prep": null,
+      "pricePerKg": 100000,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 100,
+          "pricePerKg": 100000,
+          "unit": "g",
+          "weighed": true,
+          "size": "1000 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-04",
+      "name": "Antep Fıstığı",
+      "category": "Çerezler",
+      "sourceId": "snacks-04",
+      "sourcePrice": "1500 ₺",
+      "prep": null,
+      "pricePerKg": 150000,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 150,
+          "pricePerKg": 150000,
+          "unit": "g",
+          "weighed": true,
+          "size": "1500 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-05",
+      "name": "Karışık Atom",
+      "category": "Çerezler",
+      "sourceId": "snacks-05",
+      "sourcePrice": "1000 ₺",
+      "prep": null,
+      "pricePerKg": 100000,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 100,
+          "pricePerKg": 100000,
+          "unit": "g",
+          "weighed": true,
+          "size": "1000 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-06",
+      "name": "Kabak Çekirdeği",
+      "category": "Çerezler",
+      "sourceId": "snacks-06",
+      "sourcePrice": "450 ₺",
+      "prep": null,
+      "pricePerKg": 45000,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 45,
+          "pricePerKg": 45000,
+          "unit": "g",
+          "weighed": true,
+          "size": "450 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-07",
+      "name": "Dakota",
+      "category": "Çerezler",
+      "sourceId": "snacks-07",
+      "sourcePrice": "200 ₺",
+      "prep": null,
+      "pricePerKg": 20000,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 20,
+          "pricePerKg": 20000,
+          "unit": "g",
+          "weighed": true,
+          "size": "200 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-08",
+      "name": "Soslu Mısır",
+      "category": "Çerezler",
+      "sourceId": "snacks-08",
+      "sourcePrice": "175 ₺",
+      "prep": null,
+      "pricePerKg": 17500,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 17.5,
+          "pricePerKg": 17500,
+          "unit": "g",
+          "weighed": true,
+          "size": "175 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "menu-snacks-09",
+      "name": "Soslu Yer fıstığı",
+      "category": "Çerezler",
+      "sourceId": "snacks-09",
+      "sourcePrice": "175 ₺",
+      "prep": null,
+      "pricePerKg": 17500,
+      "unitBasis": "kg",
+      "variants": [
+        {
+          "name": "Gramla",
+          "price": 17.5,
+          "pricePerKg": 17500,
+          "unit": "g",
+          "weighed": true,
+          "size": "175 TL/kg"
+        }
+      ]
+    },
+    {
+      "id": "misir",
+      "name": "Mısır",
+      "category": "Aparatifler",
+      "sourceId": "aperatifs-01",
+      "sourcePrice": "50 ₺",
+      "prep": "Mutfak",
+      "price": 5000,
+      "unit": "koçan"
+    },
+    {
+      "id": "tost",
+      "name": "Tost",
+      "category": "Aparatifler",
+      "sourceId": "aperatifs-02",
+      "sourcePrice": "150 ₺",
+      "prep": "Mutfak",
+      "price": 15000,
+      "unit": "adet"
+    },
+    {
+      "id": "gozleme",
+      "name": "Gözleme (Peynir, Kaşar)",
+      "category": "Aparatifler",
+      "sourceId": "aperatifs-03",
+      "sourcePrice": "150 ₺",
+      "prep": "Mutfak",
+      "price": 15000,
+      "unit": "adet"
+    },
+    {
+      "id": "sikma",
+      "name": "Sıkma",
+      "category": "Aparatifler",
+      "sourceId": "aperatifs-04",
+      "sourcePrice": "150 ₺",
+      "prep": "Mutfak",
+      "price": 15000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-01",
+      "name": "Fıstıklı",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-01",
+      "sourcePrice": "Tam 200 ₺\nYarım 130 ₺",
+      "prep": "Bar",
+      "variants": [
+        {
+          "name": "Tam",
+          "price": 20000,
+          "unit": "porsiyon"
+        },
+        {
+          "name": "Yarım",
+          "price": 13000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "menu-dondurma-02",
+      "name": "Çikolatalı",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-02",
+      "sourcePrice": "Tam 100 ₺\nYarım 60 ₺",
+      "prep": "Bar",
+      "variants": [
+        {
+          "name": "Tam",
+          "price": 10000,
+          "unit": "porsiyon"
+        },
+        {
+          "name": "Yarım",
+          "price": 6000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "menu-dondurma-03",
+      "name": "Limonlu",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-03",
+      "sourcePrice": "Tam 100 ₺\nYarım 60 ₺",
+      "prep": "Bar",
+      "variants": [
+        {
+          "name": "Tam",
+          "price": 10000,
+          "unit": "porsiyon"
+        },
+        {
+          "name": "Yarım",
+          "price": 6000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "sade",
+      "name": "Sade",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-04",
+      "sourcePrice": "Tam 100 ₺\nYarım 60 ₺",
+      "prep": "Bar",
+      "variants": [
+        {
+          "name": "Tam",
+          "price": 10000,
+          "unit": "porsiyon",
+          "size": "200 g · gramaj örnek"
+        },
+        {
+          "name": "Yarım",
+          "price": 6000,
+          "unit": "porsiyon",
+          "size": "100 g · gramaj örnek"
+        },
+        {
+          "name": "Gramla",
+          "price": 50,
+          "pricePerKg": 50000,
+          "unit": "g",
+          "size": "500 TL/kg · fiyat örnek",
+          "weighed": true,
+          "example": true
+        }
+      ]
+    },
+    {
+      "id": "menu-dondurma-05",
+      "name": "Fıstık Karışık",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-05",
+      "sourcePrice": "Tam 140 ₺\nYarım 100 ₺",
+      "prep": "Bar",
+      "variants": [
+        {
+          "name": "Tam",
+          "price": 14000,
+          "unit": "porsiyon"
+        },
+        {
+          "name": "Yarım",
+          "price": 10000,
+          "unit": "porsiyon"
+        }
+      ]
+    },
+    {
+      "id": "menu-dondurma-06",
+      "name": "Kartopu",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-06",
+      "sourcePrice": "75 ₺",
+      "prep": "Bar",
+      "price": 7500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-07",
+      "name": "İrem",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-07",
+      "sourcePrice": "60 ₺",
+      "prep": "Bar",
+      "price": 6000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-08",
+      "name": "Aile Boy",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-08",
+      "sourcePrice": "200 ₺",
+      "prep": "Bar",
+      "price": 20000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-09",
+      "name": "Fıstıklı İrem",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-09",
+      "sourcePrice": "100 ₺",
+      "prep": "Bar",
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "magnum",
+      "name": "Magnum",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-10",
+      "sourcePrice": "100 ₺",
+      "prep": null,
+      "price": 10000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-11",
+      "name": "Disk",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-11",
+      "sourcePrice": "85 ₺",
+      "prep": null,
+      "price": 8500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-12",
+      "name": "Clasiko",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-12",
+      "sourcePrice": "60 ₺",
+      "prep": null,
+      "price": 6000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-13",
+      "name": "Maraş Külah",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-13",
+      "sourcePrice": "75 ₺",
+      "prep": null,
+      "price": 7500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-14",
+      "name": "Aşkına",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-14",
+      "sourcePrice": "70 ₺",
+      "prep": null,
+      "price": 7000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-15",
+      "name": "Nagır",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-15",
+      "sourcePrice": "75 ₺",
+      "prep": null,
+      "price": 7500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-16",
+      "name": "Oreo",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-16",
+      "sourcePrice": "60 ₺",
+      "prep": null,
+      "price": 6000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-17",
+      "name": "Bon Bom",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-17",
+      "sourcePrice": "55 ₺",
+      "prep": null,
+      "price": 5500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-18",
+      "name": "Wienetta",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-18",
+      "sourcePrice": "35 ₺",
+      "prep": null,
+      "price": 3500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-19",
+      "name": "Frigola",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-19",
+      "sourcePrice": "45 ₺",
+      "prep": null,
+      "price": 4500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-20",
+      "name": "Volcano",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-20",
+      "sourcePrice": "55 ₺",
+      "prep": null,
+      "price": 5500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-21",
+      "name": "Maraş Kap",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-21",
+      "sourcePrice": "50 ₺",
+      "prep": null,
+      "price": 5000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-22",
+      "name": "Keyf",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-22",
+      "sourcePrice": "30 ₺",
+      "prep": null,
+      "price": 3000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-23",
+      "name": "Clasic",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-23",
+      "sourcePrice": "25 ₺",
+      "prep": null,
+      "price": 2500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-24",
+      "name": "Minecraft",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-24",
+      "sourcePrice": "30 ₺",
+      "prep": null,
+      "price": 3000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-25",
+      "name": "Gök Kuşağı",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-25",
+      "sourcePrice": "15 ₺",
+      "prep": null,
+      "price": 1500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-26",
+      "name": "Düz Parmak",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-26",
+      "sourcePrice": "10 ₺",
+      "prep": null,
+      "price": 1000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-27",
+      "name": "Conbo",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-27",
+      "sourcePrice": "15 ₺",
+      "prep": null,
+      "price": 1500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-28",
+      "name": "Visi",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-28",
+      "sourcePrice": "10 ₺",
+      "prep": null,
+      "price": 1000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-29",
+      "name": "Duo",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-29",
+      "sourcePrice": "10 ₺",
+      "prep": null,
+      "price": 1000,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-30",
+      "name": "Korpi",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-30",
+      "sourcePrice": "15 ₺",
+      "prep": null,
+      "price": 1500,
+      "unit": "adet"
+    },
+    {
+      "id": "menu-dondurma-31",
+      "name": "Twister",
+      "category": "Dondurmalar",
+      "sourceId": "dondurma-31",
+      "sourcePrice": "15 ₺",
+      "prep": null,
+      "price": 1500,
+      "unit": "adet"
+    }
+  ];
+  let nextId = 20;
+  let state = {
+    view:'tables',layout:'desktop',table:3,category:'Tümü',search:'',favoritesOnly:false,favorites:[],picker:null,variant:0,orderMode:'account',closed:[],pickInputs:{},paymentInputs:{},cancelLine:null,noteLine:null,transfer:null,moves:[],
+    tables:[1,2,3,4,5,6].map(id => ({id,name:'Masa '+id,number:1,ref:'AD-'+id+'-1',lines:[],payments:[]}))
+  };
+  const productName = product => product.displayName||product.name;
+  const productById = id => products.find(product=>product.id===id);
+  const lineFrom = (product, variant, qty, status='draft') => ({id:nextId++,product:product.id,name:productName(product),variant:variant?.name||'',size:variant?.size||'',unit:variant?.unit||product.unit,unitPrice:variant?.price??product.price,qty,status,prep:product.prep,note:''});
+  state.tables[2].lines = [lineFrom(productById('tost'),null,2,'new'),lineFrom(productById('ayran'),productById('ayran').variants[0],1,'new'),lineFrom(productById('magnum'),null,1,'delivered')];
+  state.tables[5].lines = [lineFrom(productById('adana'),productById('adana').variants[0],1,'cooking'),lineFrom(productById('cay'),null,2,'ready')];
+  const labels = {draft:'Gönderilmedi',new:'Yeni sipariş',cooking:'Hazırlanıyor',ready:'Hazır',delivered:'Teslim edildi',cancelled:'İptal edildi'};
+  const categories = ['Tümü',...new Set(products.map(p=>p.category))];
+  const favoriteStorageKey = 'nc-flow-shared-favorites-v1';
+  const validFavorites = values => Array.isArray(values)?[...new Set(values.filter(id=>products.some(p=>p.id===id)))]:[];
+  if(!window.openai?.setWidgetState){try{state.favorites=validFavorites(JSON.parse(window.localStorage.getItem(favoriteStorageKey)||'[]'));}catch{}}
+  function rememberFavorites(){if(!window.openai?.setWidgetState){try{window.localStorage.setItem(favoriteStorageKey,JSON.stringify(state.favorites));}catch{}}}
+  const searchText = value => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/ı/g,'i').replace(/\s+/g,' ').trim();
+  function filteredProducts(){
+    const terms=searchText(state.search).split(' ').filter(Boolean);
+    return products.filter(p=>(state.category==='Tümü'||p.category===state.category)&&(!state.favoritesOnly||state.favorites.includes(p.id))&&terms.every(term=>searchText(productName(p)).includes(term)));
+  }
+  const selected = () => state.tables.find(t => t.id===state.table);
+  const lineTotal = line => Math.round(line.unitPrice * line.qty);
+  const total = table => table.lines.filter(l=>!['draft','cancelled'].includes(l.status)).reduce((sum,l)=>sum+lineTotal(l),0);
+  const allocated = table => table.payments.reduce((sum,p)=>sum+p.cash+p.card+p.debt,0);
+  const remaining = table => Math.max(0,total(table)-allocated(table));
+  const allAccounts = () => [...state.tables,...state.closed];
+  const accountKey = table => table.ref||'AD-'+table.id+'-'+(table.number||1);
+  const pickKey = () => accountKey(selected())+':'+state.picker+':'+state.variant;
+  const pickInput = () => {const key=pickKey();if(!state.pickInputs[key]){const p=products.find(p=>p.id===state.picker);state.pickInputs[key]={qty:p?.variants?.[state.variant]?.weighed?'':'1',note:''};}return state.pickInputs[key];};
+  const weighed = line => ['g','kg'].includes(line.unit);
+  const closedAccount = () => selected().lines.length>0&&remaining(selected())===0&&!selected().lines.some(l=>l.status==='draft');
+  function addDraft(product,variant,qty,note='') {
+    if(closedAccount()){state.orderMode='account';render();announce('Hesap kapalı. Bu masa için yeni adisyon açın.');return false;}
+    const candidate=lineFrom(product,variant,qty);candidate.note=note;
+    const existing=!weighed(candidate)&&selected().lines.find(l=>l.status==='draft'&&l.product===candidate.product&&l.variant===candidate.variant&&l.unit===candidate.unit&&l.unitPrice===candidate.unitPrice&&l.size===candidate.size&&l.note===candidate.note);
+    if(existing){if(existing.qty+qty>10000){announce('Miktar sınırını kontrol edin.');return false;}existing.qty+=qty;}else selected().lines.push(candidate);
+    return true;
+  }
+  function draftQty(product,variant){return selected().lines.filter(l=>l.status==='draft'&&l.product===product.id&&l.variant===(variant?.name||'')).reduce((sum,l)=>sum+l.qty,0);}
+  const paymentKey = () => accountKey(selected());
+  const amountText = cents => (cents/100).toFixed(2).replace('.',',');
+  const paymentItems = payment => Array.isArray(payment.items)?payment.items:[];
+  const settledQty = (table,line,credit=null) => table.payments.reduce((sum,p)=>sum+(credit===null||Boolean(p.debt)===credit?paymentItems(p).filter(item=>item.lineId===line.id).reduce((n,item)=>n+item.qty,0):0),0);
+  const openQty = (table,line) => Math.max(0,line.qty-settledQty(table,line));
+  const unassignedPayment = table => table.payments.reduce((sum,p)=>sum+Math.max(0,p.cash+p.card+p.debt-paymentItems(p).reduce((n,item)=>n+item.amount,0)),0);
+  const qtyText = qty => new Intl.NumberFormat('tr-TR',{maximumFractionDigits:3}).format(qty);
+  function itemShare(table,line,qty){const before=settledQty(table,line);return {lineId:line.id,qty,amount:Math.round(line.unitPrice*(before+qty))-Math.round(line.unitPrice*before),name:line.name,variant:line.variant,unit:line.unit};}
+  function selectedPaymentItems(table,raw){
+    const parts=[];
+    if(unassignedPayment(table)>0)return {parts,amount:0,error:'Bu hesapta tutarla alınmış ödeme var. Kalan hesabı tutar girerek ödeyin.'};
+    for(const [id,value] of Object.entries(raw.items)){
+      const qty=Number(String(value).replace(',','.'));if(qty===0)continue;
+      const line=table.lines.find(l=>l.id===Number(id)),scale=line?.unit==='kg'?1000:1;
+      if(!line||['draft','cancelled'].includes(line.status)||!Number.isFinite(qty)||qty<=0||Math.abs(qty*scale-Math.round(qty*scale))>0.000001||qty>openQty(table,line)+0.000001)return {parts:[],amount:0,error:'Seçilen miktarı ve ürünün kalanını kontrol edin.'};
+      parts.push(itemShare(table,line,qty));
+    }
+    parts.sort((a,b)=>a.lineId-b.lineId);
+    const amount=parts.reduce((sum,item)=>sum+item.amount,0);
+    return {parts,amount,error:amount>remaining(table)?'Seçim kalan hesaptan büyük olamaz.':''};
+  }
+  const selectionKey = result => JSON.stringify(result.parts.map(item=>[item.lineId,item.qty,item.amount]));
+  const newPaymentInput = (due,collector='Kasiyer (örnek)',mode='amount') => ({amount:amountText(due),auto:true,lastDue:due,customer:'',collector,creditOpen:false,mode,items:{}});
+  let paymentPending=false;
+  function paymentInput(){
+    const key=paymentKey(),due=remaining(selected());let raw=state.paymentInputs[key];
+    if(!raw||!Object.hasOwn(raw,'amount'))raw=state.paymentInputs[key]=newPaymentInput(due);
+    if(!['amount','items'].includes(raw.mode))raw.mode='amount';if(!raw.items||typeof raw.items!=='object')raw.items={};
+    if(raw.auto&&raw.lastDue!==due)raw.amount=amountText(due);
+    raw.lastDue=due;return raw;
+  }
+  function restore(saved) {
+    if (!saved || typeof saved!=='object') return;
+    const p=saved.privateContent;
+    if (!p || p.version!==1 || !Array.isArray(p.tables) || p.tables.length!==6) return;
+    if (!p.tables.every(t=>Number.isInteger(t.id)&&Array.isArray(t.lines)&&Array.isArray(t.payments))) return;
+    state.favorites=validFavorites(p.favorites??state.favorites);
+    state.search=typeof p.search==='string'?p.search.slice(0,100):'';
+    state.category=categories.includes(p.category)?p.category:'Tümü';state.favoritesOnly=p.favoritesOnly===true;
+    state.tables=p.tables;state.table=state.tables.some(t=>t.id===p.table)?p.table:3;
+    state.closed=Array.isArray(p.closed)?p.closed:[];
+    state.tables.forEach(t=>{if(!t.ref)t.ref=accountKey(t);});
+    state.moves=Array.isArray(p.moves)?p.moves.slice(-10):[];
+    state.view=['tables','order','kitchen','payment'].includes(p.view)?p.view:'tables';
+    state.layout=p.layout==='phone'?'phone':'desktop';
+    nextId=Math.max(20,...allAccounts().flatMap(t=>t.lines.map(l=>Number(l.id)||0)))+1;
+  }
+  restore(window.openai?.widgetState);
+  const requestedView = window.location ? new URLSearchParams(window.location.search).get('view') : null;
+  if (['tables','order','kitchen','payment'].includes(requestedView)) state.view = requestedView;
+  function persist() {
+    if (!window.openai?.setWidgetState) return;
+    const table=selected();
+    const snapshot={version:1,tables:state.tables,closed:state.closed,table:state.table,view:state.view,layout:state.layout,moves:state.moves.slice(-10),favorites:state.favorites,search:state.search,category:state.category,favoritesOnly:state.favoritesOnly};
+    window.openai.setWidgetState({modelContent:{taslak:'masa-siparis-mutfak-odeme',ekran:state.view,masa:table.name,kalanTL:remaining(table)/100,gorunum:state.layout,ortakFavoriler:products.filter(p=>state.favorites.includes(p.id)).map(p=>p.name)},privateContent:JSON.stringify(snapshot).length<14000?snapshot:null}).catch(()=>{});
+  }
+  window.addEventListener('openai:set_globals',event=>{if(event.detail?.globals?.widgetState){restore(event.detail.globals.widgetState);render();}});
+  function announce(message){live.textContent=message;}
+  function go(view){state.view=view;state.picker=null;state.orderMode='account';state.noteLine=null;state.cancelLine=null;state.transfer=null;announce('');render();persist();}
+  function emptyTable(table){table.lines=[];table.payments=[];table.number=(table.number||1)+1;table.ref='AD-'+table.id+'-'+table.number;}
+  const draftAmount = table => table.lines.filter(l=>l.status==='draft').reduce((sum,l)=>sum+lineTotal(l),0);
+  const canReceiveAccount = table => !table.lines.length||remaining(table)>0||table.lines.some(l=>l.status==='draft');
+  function transferHtml(){
+    if(!state.transfer)return '';
+    const source=selected(),target=state.tables.find(t=>t.id===state.transfer.target),busy=Boolean(target?.lines.length);
+    return `<section class="nc-panel nc-transfer" aria-label="Masa hesabını taşı">
+      <div class="nc-row"><h3>${safe(source.name)} hesabını taşı</h3><button type="button" data-action="cancel-transfer" class="nc-plain cursor-interaction">Vazgeç</button></div>
+      <label>Hedef masa<select id="nc-transfer-target"><option value="">Masa seçin</option>${state.tables.filter(t=>t.id!==source.id).map(t=>`<option value="${t.id}" ${state.transfer.target===t.id?'selected':''} ${!canReceiveAccount(t)?'disabled':''}>${safe(t.name)} · ${!t.lines.length?'Boş':!canReceiveAccount(t)?'Ödenmiş hesap var':money(remaining(t)+draftAmount(t))+' açık hesap'}</option>`).join('')}</select></label>
+      ${target?`<div class="nc-dl"><span>Taşınan hesap</span><span>${safe(accountKey(source))}</span><span>Ürün toplamı · taslaklar dahil</span><span>${money(total(source)+draftAmount(source))}</span><span>Önceki ödeme / veresiye</span><span>${money(allocated(source))}</span><span>Hedef masada oluşacak kalan</span><span>${money(remaining(source)+draftAmount(source)+remaining(target)+draftAmount(target))}</span></div>`:''}
+      ${busy?`<div class="nc-notice">${safe(target.name)} dolu. Kaydedilmiş ürünler, sipariş notları ve önceki ödemeler korunacak. Henüz kaydedilmemiş ödeme alanları ile adisyona eklenmemiş ürün miktarı/notu girişleri sıfırlanacak.</div><label class="nc-check"><input id="nc-merge-ack" type="checkbox" ${state.transfer.merge?'checked':''}><span>İki hesabı ${safe(target.name)} üzerinde birleştir.</span></label>`:''}
+      <button type="button" data-action="confirm-transfer" class="nc-main cursor-interaction" ${!target||!canReceiveAccount(target)||busy&&!state.transfer.merge?'disabled':''}>${busy?'Hesapları birleştir ve taşı':'Hesabı seçilen masaya taşı'}</button>
+      <small class="nc-muted">Ürünler, notlar ve hazırlık durumları korunur. Siparişler yeniden gönderilmez.</small>
+      <div id="nc-transfer-error" class="nc-error" role="alert"></div>
+    </section>`;
+  }
+  function moveAccount(){
+    const request=state.transfer,source=selected(),target=state.tables.find(t=>t.id===request?.target);
+    if(!request||source.id!==request.source||accountKey(source)!==request.ref||!source.lines.length||closedAccount())return false;
+    if(!target||target.id===source.id||!canReceiveAccount(target))return false;
+    const merge=target.lines.length>0;if(merge&&!request.merge)return false;
+    const sourceRef=accountKey(source),targetRef=accountKey(target),sourceName=source.name;
+    source.lines.forEach(l=>{if(!l.originRef)l.originRef=sourceRef;});source.payments.forEach(p=>{if(!p.originRef)p.originRef=sourceRef;});
+    if(merge){
+      target.lines.forEach(l=>{if(!l.originRef)l.originRef=targetRef;});target.payments.forEach(p=>{if(!p.originRef)p.originRef=targetRef;});
+      target.lines=target.lines.concat(source.lines);target.payments=target.payments.concat(source.payments);
+      delete state.paymentInputs[sourceRef];delete state.paymentInputs[targetRef];
+      Object.keys(state.pickInputs).forEach(key=>{if(key.startsWith(sourceRef+':')||key.startsWith(targetRef+':'))delete state.pickInputs[key];});
+    }else{target.lines=source.lines;target.payments=source.payments;target.ref=sourceRef;}
+    state.moves.push({from:sourceName,to:target.name,fromRef:sourceRef,toRef:accountKey(target),merged:merge});state.moves=state.moves.slice(-10);
+    emptyTable(source);state.table=target.id;go('order');announce(sourceName+' hesabı '+target.name+' masasına '+(merge?'birleştirilerek taşındı.':'taşındı.'));return true;
+  }
+  function tableCards(){
+    return `<div class="nc-bar"><div><h2>Masalar</h2><small class="nc-muted">Örnek bölüm · Masa sayısı yönetimden değiştirilebilir</small></div><span class="nc-tag">${state.tables.filter(t=>remaining(t)>0||t.lines.some(l=>l.status==='draft')).length} açık hesap</span></div><div class="nc-grid">${state.tables.map(table=>{
+      const busy=table.lines.length>0;
+      return `<button type="button" class="nc-table cursor-interaction ${busy?'nc-busy':''}" data-table="${table.id}"><strong>${safe(table.name)}</strong><span>${busy?money(remaining(table)+draftAmount(table)):'Boş masa'}</span><span class="nc-muted">${busy?(table.lines.some(l=>l.status==='draft')?'Gönderilmemiş: '+money(draftAmount(table)):remaining(table)===0?'Hesap ödendi':'Adisyonu aç'):'Sipariş ekle'}</span></button>`;
+    }).join('')}</div>${state.closed.length?`<details class="nc-panel" style="margin-top:14px"><summary>Kapanan örnek hesaplar · ${state.closed.length}</summary>${state.closed.map(t=>`<div class="nc-item">${safe(t.name)} · Adisyon ${t.number||1}<div class="nc-item-detail">Toplam ${money(total(t))} · Hesap kapandı</div></div>`).join('')}</details>`:''}`;
+  }
+  function productPrice(product){if(product.pricePerKg!==undefined)return money(product.pricePerKg)+'/kg';if(product.price!==undefined)return money(product.price);const menuVariants=product.variants.filter(v=>!v.example);if(menuVariants.length===1)return money(menuVariants[0].price)+' · menü fiyatı';return money(Math.min(...menuVariants.map(v=>v.price)))+'’den';}
+  function variantPrice(variant){return variant.weighed?money(variant.pricePerKg??variant.price*1000)+'/kg'+(variant.example?' · örnek':''):money(variant.price);}
+  function productListHtml(){
+    const list=filteredProducts();
+    if(!list.length)return `<div class="nc-empty"><p>${state.favoritesOnly&&!state.favorites.length?'Henüz favori ürün seçilmedi.':'Bu filtrelerle eşleşen ürün bulunamadı.'}</p>${state.favoritesOnly&&!state.favorites.length?'<p>Tüm ürünler listesindeki yıldızlara dokunarak ortak favorileri belirleyin.</p>':''}<button type="button" data-action="clear-product-filters" class="cursor-interaction">Tüm ürünleri göster</button></div>`;
+    return list.map(p=>{const favorite=state.favorites.includes(p.id);return `<div class="nc-product-card"><button type="button" class="nc-product cursor-interaction" data-product="${p.id}"><strong>${safe(productName(p))}</strong><span>${p.prep?`${p.prep} hazırlığı`:'Hazır market ürünü'}</span><span>${productPrice(p)}</span><span>${p.pricePerKg!==undefined?'Tartılan gramı girin':p.variants?'Servis seçin':draftQty(p)?'Gönderilmedi: '+draftQty(p)+' '+safe(p.unit):'Bir tık = +1 '+safe(p.unit)}</span></button><button type="button" class="nc-favorite cursor-interaction" data-favorite="${p.id}" aria-pressed="${favorite}" aria-label="${safe(productName(p))} · ${favorite?'favorilerden çıkar':'favorilere ekle'}"><span aria-hidden="true">${favorite?'★':'☆'}</span></button></div>`;}).join('');
+  }
+  function catalogResultText(){return filteredProducts().length+' ürün'+(state.favoritesOnly?' · Ortak favoriler':'')+(state.category!=='Tümü'?' · '+state.category:'')+(state.search.trim()?' · Arama: '+state.search.trim():'');}
+  function updateCatalog(){
+    const list=content.querySelector('#nc-product-list');if(!list)return;
+    list.innerHTML=productListHtml();content.querySelector('#nc-product-results').textContent=catalogResultText();
+    content.querySelectorAll('[data-product-filter]').forEach(button=>{const favorites=button.dataset.productFilter==='favorites';button.setAttribute('aria-pressed',String(favorites===state.favoritesOnly));if(favorites)button.textContent='★ Favoriler ('+state.favorites.length+')';});
+    const search=content.querySelector('#nc-product-search');if(search.value!==state.search)search.value=state.search;
+    content.querySelector('#nc-category').value=state.category;
+    content.querySelector('[data-action="clear-product-search"]').disabled=!state.search;
+  }
+  function pickerHtml(){
+    const p=products.find(x=>x.id===state.picker);if(!p)return '';
+    const v=p.variants?.[state.variant],input=pickInput();
+    return `<div class="nc-picker"><div class="nc-row"><strong>${safe(productName(p))}</strong><button type="button" class="nc-plain cursor-interaction" data-action="close-picker">Kapat</button></div>
+      ${p.variants?`<div class="nc-variants">${p.variants.map((option,i)=>`<button type="button" class="nc-variant cursor-interaction" data-quick-variant="${i}"><strong>${safe(option.name)}</strong><span>${option.weighed?'Ağırlık gir':money(option.price)+' · +1'}</span><small>${option.size?safe(option.size):safe(option.unit)}</small><small>${draftQty(p,option)?'Gönderilmedi: '+draftQty(p,option)+' '+safe(option.unit):option.weighed?'Her satışta tartım':'Bir tıkla ekle'}</small></button>`).join('')}</div>`:''}
+      <details ${v?.weighed?'open':''}><summary>${v?.weighed?'Tartılan ağırlığı ekle':'Özel miktar veya notla ekle'}</summary>
+        ${p.variants?`<label>Servis seçeneği<select id="nc-variant">${p.variants.map((option,i)=>`<option value="${i}" ${i===state.variant?'selected':''}>${safe(option.name)} · ${variantPrice(option)}</option>`).join('')}</select></label>`:''}
+        ${v?.size?`<small class="nc-muted">${safe(v.size)}</small>`:''}<label>${v?.weighed?'Tartılan ağırlık (gram)':'Miktar'}<input id="nc-quantity" type="number" min="1" max="10000" step="1" value="${safe(input.qty)}" inputmode="numeric"></label><label>Sipariş notu<input id="nc-product-note" maxlength="120" value="${safe(input.note)}" placeholder="Örn. az pişmiş, soğansız"></label><button type="button" class="nc-main cursor-interaction" data-action="add-picked">Adisyona ekle</button>
+      </details><div id="nc-picker-error" class="nc-error" role="alert"></div></div>`;
+  }
+  function orderHtml(){
+    const table=selected();const drafts=table.lines.filter(l=>l.status==='draft');const draftTotal=drafts.reduce((sum,l)=>sum+lineTotal(l),0);
+    const isClosed=table.lines.length>0&&remaining(table)===0&&!drafts.length;
+    return `<div class="nc-bar"><div><h2>${safe(table.name)} · ${safe(accountKey(table))}</h2><small class="nc-muted">Yemekler, içecekler ve market ürünleri aynı hesapta</small></div><div class="nc-row"><button type="button" data-view="tables" class="cursor-interaction">Masalara dön</button><button type="button" data-action="open-transfer" class="cursor-interaction" ${!table.lines.length||isClosed?'disabled':''}>Hesabı taşı</button></div></div>
+      ${transferHtml()}
+      <div class="nc-split">
+        <section class="nc-panel nc-order-catalog" aria-label="Ürün ekleme">
+          <button type="button" data-action="show-account" class="nc-phone-only cursor-interaction">Adisyona dön · ${money(total(table)+draftTotal)}</button>
+          <label for="nc-product-search">Ürün ara</label><div class="nc-search-row"><input id="nc-product-search" type="search" value="${safe(state.search)}" maxlength="100" placeholder="Ürün adı yazın · örn. çay, gözleme" autocomplete="off" aria-controls="nc-product-list"><button type="button" data-action="clear-product-search" class="cursor-interaction" ${!state.search?'disabled':''}>Temizle</button></div>
+          <div class="nc-catalog-controls"><div class="nc-catalog-filters" role="group" aria-label="Ürün listesi"><button type="button" data-product-filter="all" aria-pressed="${!state.favoritesOnly}" class="cursor-interaction">Tüm ürünler</button><button type="button" data-product-filter="favorites" aria-pressed="${state.favoritesOnly}" class="cursor-interaction">★ Favoriler (${state.favorites.length})</button></div><label>Ürün kategorisi<select id="nc-category">${categories.map(c=>`<option ${c===state.category?'selected':''}>${c}</option>`).join('')}</select></label></div>
+          <div id="nc-product-results" class="nc-results" aria-live="polite">${safe(catalogResultText())}</div>
+          <div class="nc-quick-status"><span>Gönderilmemiş toplam</span><strong>${money(draftTotal)}</strong></div>
+          ${pickerHtml()}
+          <div id="nc-product-list" class="nc-products">${productListHtml()}</div>
+        </section>
+        <section class="nc-panel nc-order-account" aria-label="Masa hesabı">
+          <div class="nc-bar"><h3>Masa hesabı</h3><button type="button" data-action="show-products" class="nc-phone-only cursor-interaction">Ürün ekle</button></div>
+          ${table.lines.length?table.lines.map(l=>`<div class="nc-item">
+            <div class="nc-item-top ${l.status==='cancelled'?'nc-cancelled':''}"><strong>${safe(l.name)}</strong><span>${money(lineTotal(l))}</span></div>
+            <div class="nc-item-detail">${l.qty} ${safe(l.unit)}${l.variant?' · '+safe(l.variant):''}${l.size?' · '+safe(l.size):''}</div>
+            ${l.note?`<div class="nc-item-detail">Not: ${safe(l.note)}</div>`:''}
+            <div class="nc-item-actions"><span class="nc-tag ${l.status==='draft'?'nc-draft':l.status==='ready'?'nc-ready':''}">${labels[l.status]}</span>
+              ${l.status==='draft'&&!weighed(l)?`<button type="button" data-qty-line="${l.id}" data-delta="-1" class="cursor-interaction" aria-label="${safe(l.name)} miktarını bir azalt; bir adette satırı kaldır">−</button><span>${l.qty} ${safe(l.unit)}</span><button type="button" data-qty-line="${l.id}" data-delta="1" class="cursor-interaction" aria-label="${safe(l.name)} miktarını bir artır">+</button>`:''}
+              ${l.status==='draft'?`<button type="button" data-edit-note="${l.id}" class="cursor-interaction">${l.note?'Notu düzenle':'Not ekle'}</button><button type="button" data-remove="${l.id}" class="cursor-interaction" aria-label="${safe(l.name)} taslak satırını kaldır">Kaldır</button>`:''}
+              ${l.status==='ready'?`<button type="button" data-deliver="${l.id}" class="cursor-interaction">Teslim edildi</button>`:''}
+              ${!['draft','cancelled'].includes(l.status)&&!isClosed?`<button type="button" data-cancel="${l.id}" class="cursor-interaction">İptal iste</button>`:''}
+            </div>
+            ${l.status==='draft'&&weighed(l)?`<label class="nc-weight">Ağırlık (g)<input type="number" min="1" max="10000" step="1" data-weight-line="${l.id}" value="${l.qty}" inputmode="numeric" aria-label="${safe(l.name)} tartılan ağırlık gram"></label>`:''}
+            ${state.noteLine===l.id&&l.status==='draft'?`<div class="nc-note-editor"><label>Sipariş notu<input id="nc-line-note" maxlength="120" value="${safe(l.note)}" placeholder="Örn. soğansız"></label><button type="button" data-save-note="${l.id}" class="cursor-interaction">Notu kaydet</button></div>`:''}
+            ${state.cancelLine===l.id?`<div class="nc-cancel-form"><label>İptal nedeni<input id="nc-cancel-reason" maxlength="120" placeholder="Örn. yanlış ürün girildi"></label><button type="button" data-approve-cancel="${l.id}" class="cursor-interaction">Sorumlu onayıyla iptal · örnek</button><div id="nc-cancel-error" class="nc-error" role="alert"></div></div>`:''}
+            ${l.cancellation?`<div class="nc-item-detail">${safe(l.cancellation.reason)} · ${safe(l.cancellation.effect)}</div>`:''}
+          </div>`).join(''):'<div class="nc-empty">Bu masaya henüz ürün eklenmedi.</div>'}
+          <div class="nc-dl"><span>Gönderilen ürünler</span><span>${money(total(table))}</span><span>Yeni eklenecekler</span><span>${money(draftTotal)}</span></div>
+          <div class="nc-total"><span>Hesap toplamı</span><strong>${money(total(table)+draftTotal)}</strong></div>
+          <div class="nc-actions">
+            ${isClosed?'<button type="button" data-action="new-account" class="nc-main cursor-interaction">Bu masaya yeni adisyon aç</button>':`<button type="button" class="nc-main cursor-interaction" data-action="send" ${!drafts.length?'disabled':''}>${drafts.length?drafts.length+' satırı gönder':'Yeni sipariş yok'}</button>`}
+            <button type="button" data-view="payment" class="cursor-interaction">${isClosed?'Kapanan hesap özeti':'Ödeme ekranına geç'}</button>
+          </div>
+          ${drafts.length?'<p class="nc-note">Yeni eklenen ürünler henüz mutfağa ve kasaya gönderilmedi.</p>':''}
+        </section>
+      </div>`;
+  }
+  function kitchenHtml(){
+    const jobs=allAccounts().flatMap(table=>table.lines.filter(l=>l.prep&&['new','cooking','ready'].includes(l.status)).map(line=>({table,line})));
+    return `<div class="nc-bar"><div><h2>Mutfak / Bar</h2><small class="nc-muted">Hazır market ürünleri hazırlık listesine girmez</small></div><span class="nc-tag">${jobs.length} hazırlık satırı</span></div><div class="nc-columns">${[['new','Yeni'],['cooking','Hazırlanıyor'],['ready','Hazır']].map(([status,label])=>{const group=jobs.filter(j=>j.line.status===status);return `<section><div class="nc-column-title"><h3>${label}</h3><span class="nc-tag">${group.length}</span></div>${group.length?group.map(({table,line})=>`<article class="nc-ticket"><div class="nc-row"><strong>${safe(table.name)} · ${table.number||1}</strong><span class="nc-tag">${safe(line.prep)}</span></div><p>${line.qty} ${safe(line.unit)} · ${safe(line.name)}</p>${line.variant?`<small>${safe(line.variant)}</small>`:''}${line.size?`<div class="nc-item-detail">${safe(line.size)}</div>`:''}${line.note?`<p class="nc-note">${safe(line.note)}</p>`:''}<button type="button" class="${status==='new'?'nc-main ':''}cursor-interaction" data-progress="${line.id}">${status==='new'?'Hazırlamaya başla':status==='cooking'?'Hazır işaretle':'Teslim edildi'}</button></article>`).join(''):'<div class="nc-empty">Sipariş yok</div>'}</section>`;}).join('')}</div>`;
+  }
+  function paymentProductRows(lines,table,allowSelection=false){
+    return lines.map(line=>`<li class="nc-receipt-line" data-summary-line="${line.id}" data-summary-status="${line.status}">
+      <div class="nc-receipt-top"><strong class="${line.status==='cancelled'?'nc-cancelled':''}">${safe(line.name)}</strong><span class="nc-receipt-amount ${line.status==='cancelled'?'nc-cancelled':''}">${money(lineTotal(line))}</span></div>
+      <div class="nc-item-detail">${new Intl.NumberFormat('tr-TR',{maximumFractionDigits:3}).format(line.qty)} ${safe(line.unit)}${line.variant?' · '+safe(line.variant):''}</div>
+      <div class="nc-item-detail">Birim fiyat: ${money(line.unit==='g'?line.unitPrice*1000:line.unitPrice)}/${safe(line.unit==='g'?'kg':line.unit)}</div>
+      ${line.size?`<div class="nc-item-detail">${safe(line.size)}</div>`:''}
+      ${line.note?`<div class="nc-item-detail">Not: ${safe(line.note)}</div>`:''}
+      ${!['draft','cancelled'].includes(line.status)&&settledQty(table,line)>0&&unassignedPayment(table)===0?`<div class="nc-item-detail">${settledQty(table,line,false)>0?qtyText(settledQty(table,line,false))+' '+safe(line.unit)+' ödendi':''}${settledQty(table,line,true)>0?(settledQty(table,line,false)>0?' · ':'')+qtyText(settledQty(table,line,true))+' '+safe(line.unit)+' müşteri hesabına yazıldı':''} · Ürün payı kalan: ${qtyText(openQty(table,line))} ${safe(line.unit)}</div>`:''}
+      ${allowSelection?`<div class="nc-pay-item-controls"><label class="nc-check"><input type="checkbox" data-pay-line="${line.id}" ${Number(paymentInput().items[line.id])>0?'checked':''} ${paymentPending||openQty(table,line)<=0?'disabled':''}><span>${openQty(table,line)>0?'Bu ödemeye ekle':'Bu satır kapandı'}</span></label><label class="nc-pay-item-qty">Ödenecek ${safe(line.unit)}<input type="number" data-pay-qty="${line.id}" value="${safe(paymentInput().items[line.id]??0)}" min="0" max="${openQty(table,line)}" step="${line.unit==='kg'?'0.001':'1'}" inputmode="${line.unit==='kg'?'decimal':'numeric'}" ${paymentPending||openQty(table,line)<=0?'disabled':''}></label></div>`:''}
+      ${line.status==='draft'?'<span class="nc-tag nc-draft">Gönderilmedi · hesaba dahil değil</span>':''}
+      ${line.status==='cancelled'?`<div class="nc-item-detail">İptal · toplama dahil değil${line.cancellation?.reason?' · '+safe(line.cancellation.reason):''}</div>`:''}
+    </li>`).join('');
+  }
+  function paymentProductsHtml(table){
+    const billed=table.lines.filter(line=>!['draft','cancelled'].includes(line.status)),drafts=table.lines.filter(line=>line.status==='draft'),cancelled=table.lines.filter(line=>line.status==='cancelled');
+    const allowSelection=paymentInput().mode==='items'&&!drafts.length&&remaining(table)>0&&unassignedPayment(table)===0;
+    return `<section class="nc-receipt" aria-labelledby="nc-payment-products-heading"><div class="nc-row"><h4 id="nc-payment-products-heading" class="nc-receipt-heading">Masaya yazılan ürünler</h4><span class="nc-tag">${billed.length} hesap satırı</span></div>
+      ${unassignedPayment(table)>0?'<p class="nc-note">Tutarla alınan ödemeler olduğu için ürün adedine göre kalan gösterilmez. Güncel kalan tutar hesap özetindedir.</p>':''}
+      ${billed.length?`<ul class="nc-receipt-list" aria-label="Hesaba dahil ürünler">${paymentProductRows(billed,table,allowSelection)}</ul>`:'<div class="nc-empty">Hesaba dahil ürün yok.</div>'}
+      ${drafts.length?`<div class="nc-receipt-group"><h4 class="nc-receipt-heading">Gönderilmemiş ürünler</h4><ul class="nc-receipt-list" aria-label="Henüz hesaba dahil olmayan ürünler">${paymentProductRows(drafts,table)}</ul><p class="nc-note">Gönderilmemiş toplam: ${money(draftAmount(table))} · Ödeme öncesi adisyonda tamamlanmalı.</p></div>`:''}
+      ${cancelled.length?`<details class="nc-receipt-group"><summary>İptal edilenler (${cancelled.length}) · Toplama dahil değil</summary><ul class="nc-receipt-list" aria-label="İptal edilmiş ürünler">${paymentProductRows(cancelled,table)}</ul></details>`:''}
+    </section>`;
+  }
+  function paymentHtml(){
+    const table=selected();const due=remaining(table);const drafts=table.lines.some(l=>l.status==='draft');
+    const cash=table.payments.reduce((s,p)=>s+p.cash,0),card=table.payments.reduce((s,p)=>s+p.card,0),debt=table.payments.reduce((s,p)=>s+p.debt,0);
+    const raw=paymentInput(),choice=selectedPaymentItems(table,raw),blocked=drafts||due===0||paymentPending;
+    if(raw.mode==='items')raw.amount=amountText(choice.amount);
+    const payAttrs=`data-pay-ref="${safe(accountKey(table))}" data-pay-due="${due}" data-pay-count="${table.payments.length}" data-pay-mode="${raw.mode}" data-pay-selection="${safe(selectionKey(choice))}" ${blocked||raw.mode==='items'&&(choice.error||choice.amount<=0)?'disabled':''}`;
+    return `<div class="nc-bar"><div><h2>${safe(table.name)} · Ödeme</h2><small class="nc-muted">Kasadan veya yetkili garson tarafından masada</small></div><button type="button" data-view="order" class="cursor-interaction">Adisyona dön</button></div>
+      <div class="nc-split">
+        <section class="nc-panel"><h3>Hesap özeti</h3><small class="nc-muted">${safe(accountKey(table))}</small>
+          <div class="nc-pay-mode" role="group" aria-label="Ödeme payını belirle"><button type="button" data-payment-mode="amount" aria-pressed="${raw.mode==='amount'}" class="cursor-interaction" ${paymentPending?'disabled':''}>Tutar girerek öde</button><button type="button" data-payment-mode="items" aria-pressed="${raw.mode==='items'}" class="cursor-interaction" ${blocked||unassignedPayment(table)>0?'disabled':''}>Ürün seçerek öde</button></div>
+          ${raw.mode==='items'?'<p class="nc-note">Bu kişinin ödeyeceği ürünleri ve miktarlarını seçin.</p>':''}
+          ${paymentProductsHtml(table)}
+          <dl class="nc-dl"><dt>Gönderilen ürünler</dt><dd>${money(total(table))}</dd><dt>Alınan nakit</dt><dd>${money(cash)}</dd><dt>Alınan kart ödemesi</dt><dd>${money(card)}</dd><dt>Gerçek tahsilat toplamı</dt><dd>${money(cash+card)}</dd><dt>Müşteri hesabına yazılan</dt><dd>${money(debt)}</dd></dl>
+          <div class="nc-total"><span>Kalan hesap</span><strong>${money(due)}</strong></div>
+          ${table.payments.map((p,i)=>`<div class="nc-item"><small>İşlem ${i+1} · ${[p.cash?'Nakit '+money(p.cash):'',p.card?'POS '+money(p.card):'',p.debt?'Veresiye '+money(p.debt):''].filter(Boolean).join(' · ')}${p.customer?' · '+safe(p.customer):''}</small>${paymentItems(p).map(item=>`<div class="nc-item-detail">${qtyText(item.qty)} ${safe(item.unit)} · ${safe(item.name)}${item.variant?' · '+safe(item.variant):''} · ${money(item.amount)}</div>`).join('')}</div>`).join('')}
+          ${due===0&&table.payments.length?`<div class="nc-notice">Hesap kapandı.${debt?' Veresiye tutarı müşterinin borcu olarak izlenir.':''}</div>`:''}
+        </section>
+        <section class="nc-panel nc-payment-entry"><div class="nc-bar"><h3>Ödeme al</h3><span class="nc-tag">Kalan ${money(due)}</span></div>
+          ${drafts?'<div class="nc-notice">Gönderilmemiş ürün var. Önce adisyona dönüp siparişi gönderin veya taslak ürünü kaldırın.</div>':''}
+          <form id="nc-payment-form" aria-busy="${paymentPending}">
+            ${unassignedPayment(table)>0&&due>0?'<p class="nc-note">Önceki ödeme tutarla alındı. Bu hesapta kalan payı tutar girerek ödemeye devam edin.</p>':''}
+            ${raw.mode==='items'?'<p class="nc-note">Hesap özetinden bu kişinin ürünlerini ve miktarlarını seçin. Tutar otomatik hesaplanır.</p>':''}
+            <label class="nc-payment-amount">${raw.mode==='items'?'Seçilen ürünlerin tutarı (TL)':'Ödenecek tutar (TL)'}<input name="amount" inputmode="decimal" value="${safe(raw.amount)}" autocomplete="off" ${raw.mode==='items'?'readonly':''} ${blocked?'disabled':''}></label>
+            <div id="nc-payment-selection" class="nc-payment-selection nc-muted" aria-live="polite">${raw.mode==='items'?(choice.error?safe(choice.error):choice.parts.length+' ürün satırı seçildi'):''}</div>
+            <div class="nc-dl"><span>İşlem sonrası kalan</span><span id="nc-after-payment">${money(due)}</span></div>
+            <div class="nc-payment-methods"><button type="button" data-pay-method="cash" ${payAttrs} class="nc-main cursor-interaction">Nakit</button><button type="button" data-pay-method="card" ${payAttrs} class="cursor-interaction">POS</button></div>
+            <div id="nc-payment-error" class="nc-error" role="alert"></div>
+            <p class="nc-note">POS düğmesi, cihazda başarıyla alınmış kart ödemesini kaydeder. İşlemler örnektir.</p>
+            <details id="nc-credit-details" class="nc-payment-extra" ${raw.creditOpen?'open':''}><summary>Veresiye / müşteri hesabı</summary><label>Müşteri<select name="customer"><option value="">Müşteri seçin</option><option value="Örnek müşteri">Örnek müşteri</option></select></label><div class="nc-actions"><button type="button" data-pay-method="debt" ${payAttrs} class="cursor-interaction">Bu tutarı müşteri hesabına yaz</button></div></details>
+            <details class="nc-payment-extra"><summary>Tahsilat ayrıntıları</summary><label>Tahsilatı yapan<select name="collector"><option>Kasiyer (örnek)</option><option>Yetkili garson (örnek)</option></select></label></details>
+          </form>
+        </section>
+      </div>`;
+  }
+  function render(){
+    root.dataset.layout=state.layout;root.dataset.orderMode=state.orderMode;layout.value=state.layout;
+    root.querySelectorAll('[data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===state.view)));
+    content.innerHTML=state.view==='tables'?tableCards():state.view==='order'?orderHtml():state.view==='kitchen'?kitchenHtml():paymentHtml();
+    if(state.view==='payment'){const form=content.querySelector('#nc-payment-form');const raw=paymentInput();for(const key of ['amount','customer','collector'])form.elements[key].value=raw[key];updatePaymentPreview();}
+  }
+  function parseAmount(value){const s=String(value).trim().replace(',','.');if(!/^\d+(\.\d{1,2})?$/.test(s))return NaN;return Math.round(Number(s)*100);}
+  function paymentValues(){const form=content.querySelector('#nc-payment-form');if(!form)return null;return {amount:parseAmount(form.elements.amount.value),customer:form.elements.customer.value,collector:form.elements.collector.value};}
+  function capturePaymentInput(){const form=content.querySelector('#nc-payment-form');if(!form)return;const raw=paymentInput();for(const key of ['amount','customer','collector'])raw[key]=form.elements[key].value;}
+  function updatePaymentPreview(){
+    const raw=paymentInput(),table=selected(),choice=selectedPaymentItems(table,raw),form=content.querySelector('#nc-payment-form');if(!form)return;
+    if(raw.mode==='items'){raw.amount=amountText(choice.amount);form.elements.amount.value=raw.amount;content.querySelector('#nc-payment-selection').textContent=choice.error||choice.parts.length+' ürün satırı seçildi';}
+    const p=paymentValues();content.querySelector('#nc-after-payment').textContent=Number.isFinite(p.amount)?money(remaining(table)-p.amount):'Tutarı kontrol edin';
+    content.querySelectorAll('[data-pay-method]').forEach(button=>{button.dataset.paySelection=selectionKey(choice);button.disabled=paymentPending||remaining(table)===0||table.lines.some(l=>l.status==='draft')||raw.mode==='items'&&(Boolean(choice.error)||choice.amount<=0);});
+    content.querySelectorAll('[data-pay-line]').forEach(input=>{input.checked=Number(raw.items[input.dataset.payLine])>0;});
+  }
+  function recordPayment(method,expected){
+    if(state.view!=='payment'||paymentPending||!['cash','card','debt'].includes(method))return false;
+    const table=selected(),p=paymentValues(),error=content.querySelector('#nc-payment-error'),raw=paymentInput();
+    if(table.lines.some(l=>l.status==='draft')){error.textContent='Önce gönderilmemiş ürünleri tamamlayın.';return false;}
+    if(remaining(table)===0){error.textContent='Hesap zaten kapandı.';return false;}
+    if(!expected||expected.payRef!==accountKey(table)||Number(expected.payDue)!==remaining(table)||Number(expected.payCount)!==table.payments.length){render();content.querySelector('#nc-payment-error').textContent='Hesap değişti. Güncel kalan tutarı kontrol ederek ödeme yöntemini yeniden seçin.';return false;}
+    if(!p||!Number.isFinite(p.amount)||p.amount<=0){error.textContent='Sıfırdan büyük, en fazla iki ondalıklı tutar girin.';return false;}
+    if(p.amount>remaining(table)){error.textContent='Girilen tutar kalan hesaptan büyük olamaz.';return false;}
+    if(method==='debt'&&!p.customer){error.textContent='Veresiye için müşteri seçin.';return false;}
+    if((expected.payMode||'amount')!==raw.mode){error.textContent='Ödeme seçimi değişti. Güncel seçimi kontrol edin.';return false;}
+    let items=[];
+    if(raw.mode==='items'){
+      const choice=selectedPaymentItems(table,raw);
+      if(choice.error||choice.amount<=0||p.amount!==choice.amount||expected.paySelection!==selectionKey(choice)){error.textContent=choice.error||'Ürün seçimi değişti. Miktarları ve toplamı yeniden kontrol edin.';return false;}
+      items=choice.parts;
+    }else if(p.amount===remaining(table)&&unassignedPayment(table)===0){
+      items=table.lines.filter(line=>!['draft','cancelled'].includes(line.status)&&openQty(table,line)>0).map(line=>itemShare(table,line,openQty(table,line)));
+      if(items.reduce((sum,item)=>sum+item.amount,0)!==p.amount){error.textContent='Ürün payları değişti. Hesabı yeniden kontrol edin.';return false;}
+    }
+    paymentPending=true;
+    table.payments.push({cash:method==='cash'?p.amount:0,card:method==='card'?p.amount:0,debt:method==='debt'?p.amount:0,customer:method==='debt'?p.customer:'',collector:p.collector,items});
+    state.paymentInputs[paymentKey()]=newPaymentInput(remaining(table),p.collector,raw.mode);
+    render();persist();announce((method==='cash'?'Nakit':method==='card'?'POS':'Veresiye')+' '+money(p.amount)+' kaydedildi. '+(remaining(table)===0?'Hesap kapandı.':'Kalan: '+money(remaining(table))));
+    setTimeout(()=>{paymentPending=false;if(state.view==='payment')render();},700);
+    return true;
+  }
+  root.addEventListener('click',event=>{
+    const button=event.target.closest('button');if(!button||button.disabled)return;
+    if(button.dataset.paymentMode){
+      if(paymentPending||!['amount','items'].includes(button.dataset.paymentMode))return;
+      if(button.dataset.paymentMode==='items'&&(unassignedPayment(selected())>0||remaining(selected())===0||selected().lines.some(l=>l.status==='draft')))return;
+      capturePaymentInput();const raw=paymentInput();raw.mode=button.dataset.paymentMode;raw.items={};raw.amount=amountText(remaining(selected()));raw.auto=true;render();return;
+    }
+    if(button.dataset.favorite){
+      const id=button.dataset.favorite,product=products.find(p=>p.id===id);if(!product)return;
+      const wasFavorite=state.favorites.includes(id);state.favorites=wasFavorite?state.favorites.filter(value=>value!==id):state.favorites.concat(id);
+      rememberFavorites();updateCatalog();persist();
+      (content.querySelector('[data-favorite="'+id+'"]')||content.querySelector('[data-product-filter="favorites"]'))?.focus({preventScroll:true});
+      announce(product.name+(wasFavorite?' ortak favorilerden çıkarıldı.':' ortak favorilere eklendi.'));return;
+    }
+    if(button.dataset.productFilter){state.favoritesOnly=button.dataset.productFilter==='favorites';updateCatalog();persist();return;}
+    if(button.dataset.payMethod){if(event.detail>1)return;recordPayment(button.dataset.payMethod,button.dataset);return;}
+    if(button.dataset.view){go(button.dataset.view);return;}
+    if(button.dataset.table){const table=state.tables.find(t=>t.id===Number(button.dataset.table));if(!table)return;state.table=table.id;go('order');return;}
+    if(button.dataset.product){
+      const product=products.find(p=>p.id===button.dataset.product);if(!product)return;
+      if(product.variants){state.picker=product.id;state.variant=0;state.orderMode='products';render();return;}
+      state.picker=null;if(addDraft(product,null,1)){render();persist();announce(product.name+' bir adet eklendi. Tekrar tıklayarak artırabilirsiniz.');}return;
+    }
+    if(button.dataset.quickVariant!==undefined){
+      const product=products.find(p=>p.id===state.picker);const index=Number(button.dataset.quickVariant),variant=product?.variants?.[index];if(!variant)return;
+      state.variant=index;state.orderMode='products';
+      if(variant.weighed){render();announce('Tartılan gramı girin; her tartım ayrı eklenir.');return;}
+      if(addDraft(product,variant,1)){render();persist();announce(product.name+' · '+variant.name+' bir adet eklendi.');}return;
+    }
+    if(button.dataset.qtyLine){
+      const line=selected().lines.find(l=>l.id===Number(button.dataset.qtyLine));if(!line||line.status!=='draft'||weighed(line))return;
+      const qty=line.qty+Number(button.dataset.delta);if(!Number.isInteger(qty)||qty<0||qty>10000)return;
+      if(qty===0)selected().lines=selected().lines.filter(l=>l.id!==line.id);else line.qty=qty;
+      render();persist();announce(qty===0?'Taslak satırı kaldırıldı.':'Taslak miktarı güncellendi.');return;
+    }
+    if(button.dataset.editNote){state.noteLine=Number(button.dataset.editNote);render();return;}
+    if(button.dataset.saveNote){const line=selected().lines.find(l=>l.id===Number(button.dataset.saveNote));if(!line||line.status!=='draft')return;line.note=content.querySelector('#nc-line-note').value.trim().slice(0,120);state.noteLine=null;render();persist();announce('Sipariş notu kaydedildi.');return;}
+    if(button.dataset.remove){const table=selected();table.lines=table.lines.filter(l=>!(l.id===Number(button.dataset.remove)&&l.status==='draft'));render();persist();announce('Gönderilmemiş ürün kaldırıldı.');return;}
+    if(button.dataset.progress||button.dataset.deliver){const id=Number(button.dataset.progress||button.dataset.deliver);const line=allAccounts().flatMap(t=>t.lines).find(l=>l.id===id);if(line){line.status={new:'cooking',cooking:'ready',ready:'delivered'}[line.status]||line.status;render();persist();announce(line.name+': '+labels[line.status]);}return;}
+    if(button.dataset.cancel){state.cancelLine=Number(button.dataset.cancel);render();return;}
+    if(button.dataset.approveCancel){
+      const line=selected().lines.find(l=>l.id===Number(button.dataset.approveCancel));const reason=content.querySelector('#nc-cancel-reason').value.trim();const error=content.querySelector('#nc-cancel-error');
+      if(!reason){error.textContent='İptal nedenini girin.';return;}
+      if(!line||['draft','cancelled'].includes(line.status))return;
+      if(settledQty(selected(),line)>0){error.textContent='Bu ürün için ödeme kaydı var. İptal öncesinde ilgili ödemenin iade/düzeltme işlemi gerekir.';return;}
+      if(total(selected())-lineTotal(line)<allocated(selected())){error.textContent='Bu iptal, hesabı alınmış ödemenin altına indiriyor. İade işlemi ayrıca ele alınmalı.';return;}
+      line.cancellation={reason,effect:line.status==='new'?'Hazırlık başlamadı · tüketim oluşmadı':'Hazırlanan ürün · fire değerlendirmesi gerekir'};line.status='cancelled';state.cancelLine=null;render();persist();announce('Örnek sorumlu onayıyla iptal kaydedildi; neden hesapta korundu.');return;
+    }
+    const action=button.dataset.action;
+    if(action==='clear-product-search'){state.search='';updateCatalog();content.querySelector('#nc-product-search').focus();return;}
+    if(action==='clear-product-filters'){state.search='';state.category='Tümü';state.favoritesOnly=false;updateCatalog();content.querySelector('#nc-product-search').focus();persist();return;}
+    if(action==='open-transfer'){if(!selected().lines.length||closedAccount())return;state.transfer={source:selected().id,ref:accountKey(selected()),target:null,merge:false};state.picker=null;state.noteLine=null;state.cancelLine=null;render();return;}
+    if(action==='cancel-transfer'){state.transfer=null;render();return;}
+    if(action==='confirm-transfer'){if(!moveAccount()){const error=content.querySelector('#nc-transfer-error');if(error)error.textContent='Hedef masayı ve birleştirme seçimini kontrol edin.';}return;}
+    if(action==='show-products'){state.orderMode='products';render();return;}
+    if(action==='show-account'){state.orderMode='account';render();return;}
+    if(action==='new-account'){
+      const table=selected();if(remaining(table)>0||table.lines.some(l=>l.status==='draft'))return;
+      state.closed.push({id:table.id,name:table.name,number:table.number||1,ref:accountKey(table),lines:table.lines,payments:table.payments});emptyTable(table);state.orderMode='account';render();persist();announce('Önceki hesap korundu. Bu masa için yeni adisyon açıldı.');return;
+    }
+    if(action==='close-picker'){state.picker=null;render();return;}
+    if(action==='add-picked'){
+      const product=products.find(p=>p.id===state.picker);const variant=product?.variants?.[state.variant];
+      const qty=Number(content.querySelector('#nc-quantity').value);
+      if(!product||!Number.isInteger(qty)||qty<1||qty>10000){content.querySelector('#nc-picker-error').textContent='Geçerli bir miktar girin (1–10000).';return;}
+      const note=content.querySelector('#nc-product-note').value.trim().slice(0,120);
+      if(!addDraft(product,variant,qty,note))return;
+      delete state.pickInputs[pickKey()];state.orderMode='products';render();persist();announce('Ürün taslağa eklendi. Adisyona dönerek miktarları kontrol edip gönderebilirsiniz.');return;
+    }
+    if(action==='send'){
+      const lines=selected().lines.filter(l=>l.status==='draft');if(!lines.length)return;
+      lines.forEach(l=>l.status=l.prep?'new':'delivered');state.noteLine=null;render();persist();announce('Örnek sipariş kaydedildi. Hazırlanacak ürünler mutfak/bar listesinde, tüm ürünler masa hesabında.');
+    }
+  });
+  root.addEventListener('change',event=>{
+    if(event.target.dataset?.payLine){
+      if(paymentPending||paymentInput().mode!=='items')return;const line=selected().lines.find(l=>l.id===Number(event.target.dataset.payLine));if(!line||['draft','cancelled'].includes(line.status))return;
+      paymentInput().items[line.id]=event.target.checked?(weighed(line)?openQty(selected(),line):Math.min(1,openQty(selected(),line))):0;render();content.querySelector('[data-pay-line="'+line.id+'"]')?.focus({preventScroll:true});return;
+    }
+    if(event.target.dataset?.payQty){if(paymentPending||paymentInput().mode!=='items')return;paymentInput().items[event.target.dataset.payQty]=event.target.value;updatePaymentPreview();return;}
+    if(event.target.id==='nc-transfer-target'&&state.transfer){state.transfer.target=Number(event.target.value)||null;state.transfer.merge=false;render();return;}
+    if(event.target.id==='nc-merge-ack'&&state.transfer){state.transfer.merge=event.target.checked;render();return;}
+    if(event.target.dataset?.weightLine){
+      const line=selected().lines.find(l=>l.id===Number(event.target.dataset.weightLine));if(!line||line.status!=='draft'||!weighed(line))return;
+      const qty=Number(event.target.value);if(!Number.isInteger(qty)||qty<1||qty>10000){event.target.value=String(line.qty);announce('Geçerli bir gram miktarı girin (1–10000).');return;}
+      line.qty=qty;render();persist();announce('Tartılan ağırlık ve tutar güncellendi.');return;
+    }
+    if(event.target===layout){state.layout=layout.value;render();persist();}
+    if(event.target.id==='nc-category'){state.category=event.target.value;updateCatalog();persist();}
+    if(event.target.id==='nc-variant'){const note=pickInput().note;state.variant=Number(event.target.value);if(!pickInput().note)pickInput().note=note;render();}
+    if(event.target.closest('#nc-payment-form')){if(event.target.name==='amount')paymentInput().auto=false;capturePaymentInput();updatePaymentPreview();}
+  });
+  root.addEventListener('input',event=>{
+    if(event.target.dataset?.payQty){if(paymentPending||paymentInput().mode!=='items')return;paymentInput().items[event.target.dataset.payQty]=event.target.value;updatePaymentPreview();return;}
+    if(event.target.id==='nc-product-search'){state.search=event.target.value.slice(0,100);updateCatalog();return;}
+    if(event.target.id==='nc-line-note'){const line=selected().lines.find(l=>l.id===state.noteLine);if(line?.status==='draft')line.note=event.target.value.slice(0,120);}
+    if(event.target.id==='nc-quantity')pickInput().qty=event.target.value;
+    if(event.target.id==='nc-product-note')pickInput().note=event.target.value;
+    if(event.target.closest('#nc-payment-form')){if(event.target.name==='amount')paymentInput().auto=false;capturePaymentInput();updatePaymentPreview();}
+  });
+  root.addEventListener('toggle',event=>{if(state.view==='payment'&&event.target.id==='nc-credit-details')paymentInput().creditOpen=event.target.open;},true);
+  root.addEventListener('submit',event=>{
+    if(event.target.id!=='nc-payment-form')return;event.preventDefault();
+    content.querySelector('#nc-payment-error').textContent='Ödeme yöntemini Nakit veya POS düğmesiyle seçin; veresiye için müşteri hesabı bölümünü kullanın.';
+  });
+  render();
+  if(globalThis.Tweak){const design={density:'comfortable'};const tweak=new Tweak({container:root,onChange:()=>{root.dataset.density=design.density;}});tweak.addSelect(design,'density',{label:'Satır aralığı',options:[{label:'Rahat',value:'comfortable'},{label:'Kompakt',value:'compact'}]});}
+})();
+</script>
+
+</body></html>

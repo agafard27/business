@@ -1,0 +1,765 @@
+{
+  "version": 1,
+  "updated": "2026-10-30",
+  "modules": [
+    {
+      "id": "sales-order",
+      "name": "Garson sipariş alma",
+      "purpose": "Ürün kartı, ortak favori, servis/gramaj, not ve gönderilmemiş adisyon taslağı. Tahsilat burada yapılmaz. Stok engeli siparişi iptal etmez; stockIssue satırda görünür. Hazırlanan ürün hazır porsiyon stoğu gerektirmez.",
+      "entry": {
+        "backend/public/sales.js": "renderSales (yalnız ekran yönlendirme)",
+        "backend/public/order-entry.js": "renderTableOrder (boş masa taslağı), renderOrderEntry → openServings, openPicker",
+        "backend/public/app.js": "renderBusiness → tableDraft, openTable, openGroup yönlendirme bağlamı",
+        "backend/src/sales/service.js": "createSalesService → menu, favorite, submit, submitForTable; submitLines ortak satır kaydı"
+      },
+      "files": [
+        "backend/public/order-entry.css",
+        "backend/src/sales/routes.js",
+        "backend/src/stock/sales.js",
+        "backend/scripts/visual-order-check.js",
+        "backend/scripts/visual-responsive.js"
+      ],
+      "api": [
+        "GET /api/sales/menu",
+        "POST /api/sales/groups/:id/orders",
+        "POST /api/sales/tables/:id/orders",
+        "POST /api/sales/favorites/:id"
+      ],
+      "tests": [
+        "backend/tests/order-entry.test.js",
+        "backend/tests/table-order.test.js",
+        "backend/tests/table-order-integration.js",
+        "backend/tests/ui-integration.js",
+        "backend/tests/business-integration.js"
+      ],
+      "depends": [
+        "business-core",
+        "catalog",
+        "stock",
+        "dining",
+        "quantity-display",
+        "parties"
+      ]
+    },
+    {
+      "id": "sales-payment",
+      "name": "Hesap / Nakit / POS / veresiye",
+      "purpose": "Hesap özeti ve tahsilat. Açık kasa zorunluluğu, ürün/tutar payları, iade. Sipariş seçimi burada yapılmaz.",
+      "entry": {
+        "backend/public/payment-entry.js": "renderPaymentEntry",
+        "backend/src/sales/payments.js": "createPaymentService → meta, settle, refund, closeEmpty",
+        "backend/public/print.js": "printDocument, printAccount, printTicket"
+      },
+      "files": [
+        "backend/public/order-entry.css",
+        "backend/src/sales/routes.js",
+        "backend/public/print.js",
+        "backend/public/print.css",
+        "backend/public/responsive.css"
+      ],
+      "api": [
+        "GET /api/sales/payment-meta",
+        "POST /api/sales/groups/:id/payments",
+        "POST /api/sales/groups/:id/refunds"
+      ],
+      "tests": [
+        "backend/tests/ui-integration.js",
+        "backend/tests/business-integration.js",
+        "backend/tests/management-integration.js",
+        "backend/tests/new-features.test.js",
+        "backend/tests/new-features-integration.js"
+      ],
+      "depends": [
+        "business-core",
+        "cash",
+        "parties",
+        "quantity-display"
+      ]
+    },
+    {
+      "id": "sales-accounts",
+      "name": "Hesap listesi / taşıma / birleştirme",
+      "purpose": "Tek tık hesap açma, ayrı görsel masa taşı/birleştir; boş/dolu hedef, revision ve ödeme geçmişi koruması.",
+      "entry": {
+        "backend/public/account-list.js": "renderAccountList",
+        "backend/public/account-tools.js": "renderAccountTools",
+        "backend/src/sales/service.js": "list, get, move, merge, requestBill",
+        "backend/public/account-open.js": "bindAccountOpen (tek tık, çift tık kilidi, aynı anahtarla tekrar; müşteri açılışında scope; kartta data-account-open-label durum etiketi)"
+      },
+      "files": [
+        "backend/public/sales.js",
+        "backend/src/sales/routes.js",
+        "backend/public/business.css"
+      ],
+      "api": [
+        "POST /api/sales/open",
+        "GET /api/sales/groups",
+        "POST /api/sales/groups/:id/move",
+        "POST /api/sales/groups/:id/merge"
+      ],
+      "tests": [
+        "backend/tests/business-integration.js",
+        "backend/tests/ui-integration.js",
+        "backend/tests/new-features.test.js",
+        "backend/tests/new-features-integration.js"
+      ],
+      "depends": [
+        "dining",
+        "business-core"
+      ]
+    },
+    {
+      "id": "dining",
+      "name": "Bölüm ve masalar",
+      "purpose": "Günlük masa/sipariş görünümü ve ayrı düzenleme modu; tek/toplu ekleme, ad/bölüm düzenleme, kaldırma/geri getirme; filtre, sıra ve belirsiz yazma koruması.",
+      "entry": {
+        "backend/public/dining.js": "renderDining → setManaging, tableCard; günlükte openTable/openGroup, düzenleme modunda karttan form; filtre ve mod koruması",
+        "backend/src/dining/service.js": "createDiningService → list, saveSection, saveTable, createTables",
+        "backend/public/dining-editor.js": "mountDiningEditor, nextTableNumber → addMode, editTable, addTables; tek/toplu geçişte bölüm, gelişmiş ad/numara; düzenle/kaldır/geri getir; belirsiz sonucu koru"
+      },
+      "files": [
+        "backend/src/dining/routes.js",
+        "backend/public/order-entry.js",
+        "backend/public/business.css",
+        "backend/public/dining.css",
+        "backend/public/index.html"
+      ],
+      "api": [
+        "GET /api/dining",
+        "POST /api/dining/sections",
+        "PATCH /api/dining/sections/:id",
+        "POST /api/dining/tables",
+        "PATCH /api/dining/tables/:id",
+        "POST /api/dining/tables/batch"
+      ],
+      "tests": [
+        "backend/tests/business-integration.js",
+        "backend/tests/ui-integration.js",
+        "backend/tests/new-features-integration.js",
+        "backend/tests/dining-management.test.js",
+        "backend/scripts/visual-order-check.js"
+      ],
+      "depends": [
+        "business-core",
+        "sales-accounts",
+        "sales-order"
+      ]
+    },
+    {
+      "id": "catalog",
+      "name": "Ürün, servis, fiyat, barkod ve birimler",
+      "purpose": "Ürün, sürümlü servis/fiyat, birim/barkod/reçete; standart birimleri çoğaltmadan tamamlama ve doğrulanmış fiziksel oranlar.",
+      "entry": {
+        "backend/public/catalog.js": "renderCatalog",
+        "backend/public/catalog-option-entry.js": "simpleSaleOption, mountCatalogOptionEntry → kavanoz/paket veya tartılı satış; miktar/birim/fiyat ve aynı komutla belirsiz sonuç kontrolü",
+        "backend/public/definitions.js": "renderDefinitions",
+        "backend/src/catalog/service.js": "createCatalogService",
+        "backend/src/catalog/definitions.js": "createDefinitionService",
+        "backend/public/definition-entry-guide.js": "optionGuide, recipeGuide, normalizedRows, stockRuleGuide",
+        "backend/src/catalog/units.js": "standardUnits, standardFactor"
+      },
+      "files": [
+        "backend/src/catalog/routes.js",
+        "backend/src/catalog/definition-routes.js",
+        "backend/src/catalog/validation.js",
+        "backend/src/catalog/reference.js",
+        "backend/public/catalog.css"
+      ],
+      "api": [
+        "/api/catalog",
+        "/api/definitions",
+        "POST /api/definitions/products/:id/options",
+        "POST /api/definitions/units/standard"
+      ],
+      "tests": [
+        "backend/tests/catalog.test.js",
+        "backend/tests/catalog-option-entry.test.js",
+        "backend/tests/catalog-integration.js",
+        "backend/tests/reference.test.js",
+        "backend/tests/data-entry.test.js",
+        "backend/tests/new-features.test.js",
+        "backend/tests/new-features-integration.js"
+      ],
+      "depends": [
+        "auth",
+        "business-core"
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "Mutfak / bar",
+      "purpose": "Fiyatsız hazırlık listesi; hazırlanıyor, hazır ve teslim geçişleri. Hazırlık tüketimi eksikse aşama ilerler, stok kontrolü uyarısı korunur.",
+      "entry": {
+        "backend/public/kitchen.js": "renderKitchen",
+        "backend/src/kitchen/service.js": "createKitchenService"
+      },
+      "files": [
+        "backend/src/kitchen/routes.js",
+        "backend/src/stock/sales.js"
+      ],
+      "api": [
+        "/api/kitchen"
+      ],
+      "tests": [
+        "backend/tests/stock-integration.js"
+      ],
+      "depends": [
+        "sales-order",
+        "stock",
+        "quantity-display"
+      ]
+    },
+    {
+      "id": "stock",
+      "name": "Reçete, üretim, stok, parti ve sayım",
+      "purpose": "Gerçek stok/maliyet/üretim ve reçete tüketimi. Stok eksikliği satışı durdurmaz; satır tüketimi atomik bekleyen kontrol kaydı olur.",
+      "entry": {
+        "backend/public/stock.js": "renderStock; renderPurchases yalnız purchases.js uyumluluk dışa aktarımı",
+        "backend/src/stock/service.js": "createStockService",
+        "backend/src/stock/core.js": "lockProducts, stockBalance, consume, moveStock",
+        "backend/src/stock/sales.js": "consumeLine, reverseUnpreparedLine",
+        "backend/src/stock/tracking.js": "activateDirectSales, createStockTrackingService → enableSalesTracking, retryStockIssue",
+        "backend/public/stock-status.js": "mountStockStatus, canTrackReadyProduct",
+        "backend/public/stock-entry-guide.js": "mountStockGuide"
+      },
+      "files": [
+        "backend/src/stock/routes.js",
+        "backend/public/definitions.js",
+        "backend/src/catalog/definitions.js",
+        "backend/src/migrations/008-stock-issues.js",
+        "backend/public/operation-labels.js"
+      ],
+      "api": [
+        "/api/stock",
+        "POST /api/definitions/recipes",
+        "POST /api/stock/sales-tracking",
+        "POST /api/stock/issues/:id/retry"
+      ],
+      "tests": [
+        "backend/tests/stock-integration.js",
+        "backend/tests/operational-integration.js",
+        "backend/tests/stock-tracking-integration.js",
+        "backend/tests/data-entry.test.js",
+        "backend/tests/new-features-integration.js"
+      ],
+      "depends": [
+        "business-core",
+        "catalog",
+        "quantity-display"
+      ]
+    },
+    {
+      "id": "purchasing",
+      "name": "Alış / mal kabulü / tedarikçi iadesi",
+      "purpose": "Ana ekran alış listesi; yeni alış formu düğmeyle açılır. Teslim alınacak/ödemesi kalan filtreleri, mal kabulü, borç ve fatura ödemesi.",
+      "entry": {
+        "backend/public/purchases.js": "renderPurchases (arama, durum filtresi, yeni alış, teslim alma, ödeme/iade)",
+        "backend/src/purchasing/service.js": "createPurchasingService",
+        "backend/public/purchase-entry-guide.js": "purchaseItems, mountPurchaseGuide"
+      },
+      "files": [
+        "backend/src/purchasing/routes.js",
+        "backend/src/finance/allocate.js",
+        "backend/public/stock.js",
+        "backend/public/party-book.css"
+      ],
+      "api": [
+        "/api/purchases"
+      ],
+      "tests": [
+        "backend/tests/stock-integration.js",
+        "backend/tests/operational-integration.js",
+        "backend/tests/party-ui-integration.js",
+        "backend/tests/data-entry.test.js",
+        "backend/tests/new-features-integration.js"
+      ],
+      "depends": [
+        "stock",
+        "parties",
+        "cash"
+      ]
+    },
+    {
+      "id": "cash",
+      "name": "Kasa / devir / nakit teslim",
+      "purpose": "Süreye bağlı vardiya yok. Kasa teslim edilene kadar açık kalır; alıcı, sayım, fark, kaydı yapan ve zaman korunur. Yeni açılış eski kayıtları sıfırlamaz.",
+      "entry": {
+        "backend/public/cash.js": "renderCash",
+        "backend/src/finance/cash.js": "createCashService → cash, register, openShift, closeShift (devir), cashMovement, transfer"
+      },
+      "files": [
+        "backend/public/cash.css",
+        "backend/public/finance.js",
+        "backend/src/finance/service.js",
+        "backend/src/finance/routes.js",
+        "backend/src/sales/payments.js",
+        "backend/src/migrations/007-cash-handover.js",
+        "backend/scripts/visual-order-check.js",
+        "backend/public/data-entry.js"
+      ],
+      "api": [
+        "GET /api/finance/cash",
+        "POST /api/finance/shifts",
+        "POST /api/finance/cash-sessions/:id/handover",
+        "POST /api/finance/shifts/:id/close (uyumluluk; alıcı zorunlu)",
+        "POST /api/finance/transfers"
+      ],
+      "tests": [
+        "backend/tests/business-integration.js",
+        "backend/tests/operational-integration.js",
+        "backend/tests/cash-integration.js",
+        "backend/tests/ui-integration.js"
+      ],
+      "depends": [
+        "business-core",
+        "schema",
+        "sales-payment"
+      ]
+    },
+    {
+      "id": "parties",
+      "name": "Veresiye ve tedarikçi hesapları (ayrı ekranlar)",
+      "purpose": "Müşteri satış → veresiye → tahsilat; tedarikçi mal alışı → borç → ödeme. Liste/arama, seçili hesap ve geçmiş; günlük işlemde alacak/borç türü seçtirilmez.",
+      "entry": {
+        "backend/public/party-book.js": "renderCustomers, renderSuppliers, renderPartyBook (liste/arama/ekleme)",
+        "backend/public/party-detail.js": "renderPartyDetail (hareket, tahsilat/ödeme, bilgiler, eski bakiye)",
+        "backend/src/finance/service.js": "parties, party, updateParty, ledger, partyEntry",
+        "backend/src/finance/allocate.js": "allocatePartyPayment"
+      },
+      "files": [
+        "backend/public/party-book.css",
+        "backend/public/finance.js",
+        "backend/public/account-open.js",
+        "backend/public/app.js",
+        "backend/src/finance/routes.js",
+        "backend/scripts/visual-order-check.js",
+        "backend/public/data-entry.js"
+      ],
+      "api": [
+        "GET /api/finance/parties",
+        "POST /api/finance/parties",
+        "PATCH /api/finance/parties/:id",
+        "GET /api/finance/parties/:id/ledger",
+        "POST /api/finance/parties/:id/entries",
+        "GET /api/finance/payment-meta"
+      ],
+      "tests": [
+        "backend/tests/business-integration.js",
+        "backend/tests/operational-integration.js",
+        "backend/tests/party-ui-integration.js",
+        "backend/tests/ui-integration.js"
+      ],
+      "depends": [
+        "cash",
+        "business-core",
+        "sales-accounts",
+        "sales-payment",
+        "purchasing"
+      ]
+    },
+    {
+      "id": "expenses",
+      "name": "Gider / personel / ekipman",
+      "purpose": "Tarihli gider/personel/avans/ekipman; avans ve ücret kısayolları, personele göre kayıt süzme, ayrı ödeme.",
+      "entry": {
+        "backend/public/expenses.js": "renderExpenses",
+        "backend/src/expenses/service.js": "createExpenseService",
+        "backend/public/expense-entry-guide.js": "mountExpenseGuide"
+      },
+      "files": [
+        "backend/src/expenses/routes.js"
+      ],
+      "api": [
+        "/api/expenses"
+      ],
+      "tests": [
+        "backend/tests/management-integration.js",
+        "backend/tests/data-entry.test.js",
+        "backend/tests/new-features.test.js",
+        "backend/tests/new-features-integration.js"
+      ],
+      "depends": [
+        "parties",
+        "cash",
+        "files"
+      ]
+    },
+    {
+      "id": "reports",
+      "name": "Yönetici özeti ve raporlar",
+      "purpose": "18 rapor alanı; işletme özeti, tutardan ayrıntıya geçiş, eksik maliyet nedenleri, ortak tarih ve personel/ekipman/cari ayrımı.",
+      "entry": {
+        "backend/public/overview.js": "renderOverview",
+        "backend/public/reports.js": "renderReports",
+        "backend/src/reports/service.js": "createReportService",
+        "backend/src/reports/details.js": "reportDetails",
+        "backend/public/operation-labels.js": "actionLabel, outcomeLabel, kindLabel, accountLabel",
+        "backend/public/report-sections.js": "reportSections, summaryHtml, detailTableHtml, productSalesHtml, auditHtml"
+      },
+      "files": [
+        "backend/src/reports/routes.js",
+        "backend/public/reports.css",
+        "backend/public/index.html"
+      ],
+      "api": [
+        "/api/reports/dashboard",
+        "/api/reports/summary",
+        "/api/reports/details",
+        "/api/reports/details?kind=costs"
+      ],
+      "tests": [
+        "backend/tests/management-integration.js",
+        "backend/tests/ui-integration.js",
+        "backend/tests/data-entry.test.js",
+        "backend/tests/new-features.test.js",
+        "backend/tests/new-features-integration.js",
+        "backend/tests/reports.test.js"
+      ],
+      "depends": [
+        "auth",
+        "quantity-display"
+      ]
+    },
+    {
+      "id": "imports",
+      "name": "Excel / CSV aktarımı",
+      "purpose": "Eşleştirme, önizleme, atomik uygulama ve bağımlılık denetimli ters kayıt.",
+      "entry": {
+        "backend/public/imports.js": "renderImports",
+        "backend/src/imports/service.js": "createImportService",
+        "backend/src/imports/reverse.js": "reverseImport"
+      },
+      "files": [
+        "backend/src/imports/routes.js",
+        "backend/src/imports/reader.js",
+        "backend/src/imports/reader-worker.js",
+        "backend/src/imports/formats.js"
+      ],
+      "api": [
+        "/api/imports"
+      ],
+      "tests": [
+        "backend/tests/imports.test.js",
+        "backend/tests/import-integration.js"
+      ],
+      "depends": [
+        "catalog",
+        "stock",
+        "parties"
+      ]
+    },
+    {
+      "id": "auth",
+      "name": "Giriş / oturum / kullanıcı / rol",
+      "purpose": "Kimlik, oturum, Beni hatırla (30 gün), yetki ve yönetim. Normal oturum en fazla 12 saat; çıkış/iptal kuralları korunur.",
+      "entry": {
+        "backend/src/auth/service.js": "createAuthService",
+        "backend/src/auth/management.js": "createAuthManagementService",
+        "backend/public/administration.js": "renderAdministration",
+        "backend/public/app.js": "renderEntry → Beni hatırla seçimi"
+      },
+      "files": [
+        "backend/src/auth/routes.js",
+        "backend/src/auth/management-routes.js",
+        "backend/src/auth/policy.js",
+        "backend/src/auth/password.js",
+        "backend/src/network.js",
+        "backend/public/app.css"
+      ],
+      "api": [
+        "/api/auth",
+        "/api/users",
+        "/api/admin"
+      ],
+      "tests": [
+        "backend/tests/auth.test.js",
+        "backend/tests/auth-integration.js",
+        "backend/tests/management-integration.js",
+        "backend/tests/network.test.js",
+        "backend/scripts/visual-order-check.js",
+        "backend/scripts/visual-responsive.js"
+      ],
+      "depends": [
+        "runtime"
+      ]
+    },
+    {
+      "id": "approvals",
+      "name": "Yetkili onay kuyruğu",
+      "purpose": "Talep, karar ve aynı onay eyleminin bir kez uygulanması.",
+      "entry": {
+        "backend/src/auth/approvals.js": "createApprovalService",
+        "backend/src/auth/approval-actions.js": "createDefaultApprovalService → sales.table.submit ilk masa siparişi, payload.id masa kimliği",
+        "backend/public/administration.js": "yalnız renderApprovals"
+      },
+      "files": [
+        "backend/src/auth/approval-routes.js"
+      ],
+      "api": [
+        "/api/approvals"
+      ],
+      "tests": [
+        "backend/tests/management-integration.js"
+      ],
+      "depends": [
+        "auth",
+        "business-core"
+      ]
+    },
+    {
+      "id": "backup",
+      "name": "Yedek / ayrı geri dönüş",
+      "purpose": "Şifreli tutarlı veritabanı ve ek belge yedeği; kaynak üzerine yazmadan doğrulama.",
+      "entry": {
+        "backend/src/backup/service.js": "backupSettings, createBackup, restoreBackup, createBackupService",
+        "backend/public/backups.js": "renderBackups"
+      },
+      "files": [
+        "backend/src/backup/routes.js",
+        "backend/scripts/backup.js",
+        "backend/scripts/restore-check.js"
+      ],
+      "api": [
+        "/api/backups"
+      ],
+      "tests": [
+        "backend/tests/backup-integration.js"
+      ],
+      "depends": [
+        "schema",
+        "files"
+      ]
+    },
+    {
+      "id": "files",
+      "name": "Belge ekleri",
+      "purpose": "PDF/PNG/JPEG doğrulama, hash ile saklama ve yetkili indirme.",
+      "entry": {
+        "backend/src/files/service.js": "createFileService"
+      },
+      "files": [
+        "backend/src/files/routes.js",
+        "backend/public/business-ui.js"
+      ],
+      "api": [
+        "/api/files"
+      ],
+      "tests": [
+        "backend/tests/management-integration.js",
+        "backend/tests/backup-integration.js"
+      ],
+      "depends": [
+        "auth"
+      ]
+    },
+    {
+      "id": "business-core",
+      "name": "Ortak işlem altyapısı",
+      "purpose": "Transaction, requestKey, revision yardımcısı, kuruş/miktar, yetki ve güvenli hata. Alan iş kuralı burada toplanmaz.",
+      "entry": {
+        "backend/src/business/core.js": "operate, assertPermission, snapshot, money, decimal",
+        "backend/src/business/router.js": "businessRouter, endpoint, writeGuards",
+        "backend/public/business-ui.js": "commandForm, rowEditor; /sales/tables/:id/orders → sales.table.submit onay eşlemesi",
+        "backend/public/data-entry.js": "quantityInput, quantityScaled, fieldHelp, showField, quantityRows, paymentGuide, paymentAmount, unitName"
+      },
+      "files": [
+        "backend/src/database.js",
+        "backend/src/business/changes.js",
+        "backend/public/changes.js",
+        "backend/public/data-entry.css"
+      ],
+      "api": [
+        "GET /api/changes"
+      ],
+      "tests": [
+        "backend/tests/business.test.js",
+        "backend/tests/database.test.js",
+        "backend/tests/data-entry.test.js"
+      ],
+      "depends": [
+        "auth"
+      ]
+    },
+    {
+      "id": "settings",
+      "name": "İşletme ve PC ayarları",
+      "purpose": "İşletme adı, ana bilgisayardan Wi-Fi ağını etkinleştirme, güncel HTTPS adresi ve cihaz sertifika kurulumu.",
+      "entry": {
+        "backend/src/business/settings.js": "createSettingsService, createSettingsRouter",
+        "backend/public/settings.js": "renderSettings",
+        "backend/public/network-settings.js": "renderNetworkSettings"
+      },
+      "files": [
+        "backend/public/assistant-settings.js",
+        "backend/public/display-mode.js"
+      ],
+      "api": [
+        "/api/settings"
+      ],
+      "tests": [
+        "backend/tests/management-integration.js",
+        "backend/tests/ui-integration.js",
+        "backend/tests/network.test.js",
+        "backend/tests/new-features.test.js"
+      ],
+      "depends": [
+        "business-core",
+        "assistant",
+        "runtime",
+        "navigation"
+      ]
+    },
+    {
+      "id": "schema",
+      "name": "Şema / sürümlü migration",
+      "purpose": "Yayımlanmış migration değişmez; yeni sürüm ayrı dosyadır. Runtime DDL çalıştırmaz.",
+      "entry": {
+        "backend/src/schema.js": "migrate, verifySchema, migrations"
+      },
+      "files": [
+        "backend/scripts/migrate.js",
+        "backend/src/migrations/003-dining-revisions.js",
+        "backend/src/migrations/004-sale-stock-snapshots.js",
+        "backend/src/migrations/005-operational-fields.js",
+        "backend/src/migrations/006-import-reversal.js",
+        "backend/src/migrations/007-cash-handover.js",
+        "backend/src/migrations/008-stock-issues.js"
+      ],
+      "api": [],
+      "tests": [
+        "backend/tests/schema-integrity.js",
+        "backend/tests/integration.check.js"
+      ],
+      "depends": []
+    },
+    {
+      "id": "runtime",
+      "name": "Başlatma / bağlantı / sağlık",
+      "purpose": "PC HTTP yaşam döngüsü, açıkça etkinleştirilen HTTPS LAN, otomatik ağ adresi, DPAPI/TLS ve Windows özel ağ izinleri.",
+      "entry": {
+        "backend/src/server.js": "sunucu yaşam döngüsü",
+        "backend/src/app.js": "createApp",
+        "backend/src/monitor.js": "createMonitor",
+        "backend/src/network.js": "createNetworkManager → initialize, status, start, close; prepareWindowsNetwork, loadNetworkTLS, allowedRequestHost, networkHostGuard",
+        "backend/src/network-routes.js": "createNetworkRouter"
+      },
+      "files": [
+        "backend/src/config.js",
+        "backend/src/secrets.js",
+        "backend/scripts/doctor.js",
+        "backend/scripts/start.js",
+        "backend/scripts/install-startup.ps1",
+        "backend/scripts/run-hidden.ps1",
+        "backend/public/app.js",
+        "backend/scripts/network-setup.ps1",
+        "backend/scripts/network-firewall.ps1"
+      ],
+      "api": [
+        "/health/live",
+        "/health/ready",
+        "/api/system/status",
+        "GET /api/network",
+        "POST /api/network (activate/deactivate; settings.manage + loopback + requestKey/revision)",
+        "GET /api/network/certificate (settings.manage + loopback)"
+      ],
+      "tests": [
+        "backend/tests/app.test.js",
+        "backend/tests/monitor.test.js",
+        "backend/tests/network.test.js"
+      ],
+      "depends": [
+        "schema",
+        "navigation",
+        "assistant",
+        "auth",
+        "settings"
+      ]
+    },
+    {
+      "id": "quantity-display",
+      "name": "Miktar gösterimi",
+      "purpose": "MySQL DECIMAL gerçek miktardır. 1.000000 ekranda 1, gerçek milyon 1.000.000; hesap/saklama ölçeği değiştirilmez.",
+      "entry": {
+        "backend/public/quantity-format.js": "formatQuantity"
+      },
+      "files": [],
+      "api": [],
+      "tests": [
+        "backend/tests/quantity-format.test.js"
+      ],
+      "depends": []
+    },
+    {
+      "id": "navigation",
+      "name": "Ana menü ve ekran arama",
+      "purpose": "Yetkiye göre solda tek açık bölüm, doğrudan ekranlar, telefon menüsü, ekran arama, rehber ve görünüm tercihi.",
+      "entry": {
+        "backend/public/navigation-catalog.js": "screens + navigationGroups.screenIds → ekran/bölüm/sıra/izin kaynağı; navigationAlias ortak hedef; availableScreens, canAccessScreen, searchScreens",
+        "backend/public/navigation-search.js": "mountNavigationSearch",
+        "backend/public/app.js": "renderHome → workspace-shell / workspace-content yerleşimi, arama aboneliği temizleme",
+        "backend/public/guide-scenarios.js": "guideTopics (33 statik örnek)",
+        "backend/public/screen-guide.js": "availableGuides, scenarioHtml, mountScreenGuide",
+        "backend/public/display-mode.js": "mountDisplayMode",
+        "backend/public/workspace-navigation.js": "mountWorkspaceNavigation → tek açık bölüm, doğrudan ekranlar, ortak hedefi tek gösterme, mobil aç-kapat, aktif ekran, dinleyici temizliği"
+      },
+      "files": [
+        "backend/public/navigation-search.css",
+        "backend/public/index.html",
+        "backend/scripts/visual-order-check.js",
+        "backend/public/responsive.css",
+        "backend/scripts/visual-responsive.js",
+        "backend/public/workspace-navigation.css"
+      ],
+      "api": [],
+      "tests": [
+        "backend/tests/navigation.test.js",
+        "backend/tests/ui-integration.js",
+        "backend/tests/new-features.test.js"
+      ],
+      "depends": [
+        "auth",
+        "assistant"
+      ]
+    },
+    {
+      "id": "assistant",
+      "name": "Program rehberi / yapay zekâ",
+      "purpose": "Anahtarsız, rol filtreli 33 kullanım senaryosu ve tam metin arama; isteğe bağlı AI yalnız aynı izinli rehberi kullanır.",
+      "entry": {
+        "backend/src/assistant/service.js": "createAssistantService → status, ask, configuration, save",
+        "backend/src/assistant/config.js": "createAssistantConfig (DPAPI + atomik ayar, revision/requestKey)",
+        "backend/public/assistant.js": "renderAssistant (yerel rehber ve soru)",
+        "backend/public/assistant-settings.js": "renderAssistantSettings (anahtar yalnız giriş, geri gösterilmez)"
+      },
+      "files": [
+        "backend/src/assistant/routes.js",
+        "backend/src/server.js",
+        "backend/src/app.js",
+        "backend/public/navigation-catalog.js",
+        "backend/public/navigation-search.css",
+        "backend/public/settings.js",
+        "backend/src/secrets.js",
+        "backend/public/guide-scenarios.js",
+        "backend/public/screen-guide.js",
+        "backend/public/responsive.css"
+      ],
+      "api": [
+        "GET /api/assistant/status",
+        "POST /api/assistant/ask",
+        "GET /api/assistant/configuration (settings.manage)",
+        "POST /api/assistant/configuration (settings.manage)"
+      ],
+      "tests": [
+        "backend/tests/assistant.test.js",
+        "backend/tests/ui-integration.js",
+        "backend/tests/new-features.test.js"
+      ],
+      "depends": [
+        "navigation",
+        "auth",
+        "settings",
+        "runtime"
+      ]
+    }
+  ]
+}

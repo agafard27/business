@@ -1,0 +1,13 @@
+.cash-workspace .business-split{align-items:start}
+.cash-workspace .panel{margin-bottom:16px;padding:22px}
+.cash-workspace h3{margin:0 0 16px}
+.cash-workspace article+article{border-top:1px solid var(--border);margin-top:20px;padding-top:14px}
+.cash-workspace details{margin:12px 0}
+.cash-workspace summary{cursor:pointer;line-height:1.6}
+.cash-workspace details[open]>summary{margin-bottom:10px;font-weight:600}
+.cash-workspace .business-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.cash-workspace .business-form label{margin:0}
+.cash-workspace .business-form .error{grid-column:1/-1;margin:0}
+.cash-workspace .business-form .error:empty{display:none}
+.cash-workspace .business-form button[type=submit]{grid-column:1/-1;justify-self:start}
+@media(max-width:600px){.cash-workspace .business-form{grid-template-columns:1fr}}

@@ -1,0 +1,13 @@
+import {bindAccountOpen} from './account-open.js';
+import {html,input,select,formShell} from './business-ui.js';
+export async function renderAccountList(container,context){
+  const {request,message,isCurrent,openGroup}=context;
+  document.body.classList.remove('order-screen');container.classList.remove('payment-workspace');
+    const data=await request('/api/sales/groups');if(!isCurrent())return;
+    container.innerHTML=`<h2>Adisyon ve hızlı satış</h2><section class="panel" id="new-retail"><p>Masasız bir satış hesabı aç.</p><button type="button" class="primary" id="open-retail">Yeni adisyon aç</button><p id="retail-message" class="error" role="alert"></p></section><h3>Açık hesaplar</h3><div class="business-list">${data.groups.map(group=>`<button class="secondary" data-group="${html(group.id)}">Hesap #${html(group.id)}</button>`).join('')||'<p>Açık hesap yok.</p>'}</div>`;
+    bindAccountOpen(container.querySelector('#open-retail'),{context,errorNode:container.querySelector('#retail-message')});
+    container.querySelectorAll('[data-group]').forEach(button=>button.addEventListener('click',()=>openGroup(button.dataset.group)));
+    const history=document.createElement('section');history.className='panel';history.innerHTML='<h3>Hesap geçmişi</h3>'+formShell(select('status','Durum',[{id:'closed',name:'Kapanmış'},{id:'merged',name:'Birleştirilmiş'},{id:'all',name:'Tümü'}])+input('from','Başlangıç','','type="date"')+input('to','Bitiş','','type="date"'))+'<div id="sale-history"></div>';container.append(history);let cursor=null;
+    const historyForm=history.querySelector('form');async function loadHistory(append=false){try{const fields=new FormData(historyForm);const query=new URLSearchParams({status:fields.get('status')});for(const field of ['from','to'])if(fields.get(field))query.set(field,fields.get(field));if(append&&cursor)query.set('before',cursor);const result=await request('/api/sales/groups?'+query);if(!isCurrent())return;const list=history.querySelector('#sale-history');if(!append)list.innerHTML='';list.querySelector('[data-more]')?.remove();for(const row of result.groups){const button=document.createElement('button');button.className='secondary';button.textContent='#'+row.id+' · '+new Date(row.openedAtUtc).toLocaleString('tr-TR');button.addEventListener('click',()=>openGroup(row.id));list.append(button);}cursor=result.nextCursor;if(cursor){const more=document.createElement('button');more.dataset.more='1';more.textContent='Sonraki 200 hesap';more.addEventListener('click',()=>void loadHistory(true));list.append(more);}}catch(error){historyForm.querySelector('.error').textContent=message(error);}}
+    historyForm.addEventListener('submit',event=>{event.preventDefault();void loadHistory();});return;
+}
